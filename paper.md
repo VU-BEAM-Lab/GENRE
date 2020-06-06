@@ -16,6 +16,7 @@ authors:
 affiliations: 
   - name: Vanderbilt University
     index: 1
+date: 6 June 2020
 bibliography: paper.bib
 ---
 
