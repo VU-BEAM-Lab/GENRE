@@ -21,7 +21,7 @@ bibliography: paper.bib
 ---
 
 # Summary
-GEN (GPU Elastic-Net) is a CUDA-accelerated MATLAB package that allows for many instances of linear
+GEN (GPU Elastic-Net) is a MATLAB (MathWorks, Natick, MA) package that allows for many instances of linear
 regression with elastic-net regularization to be processed in parallel on a GPU. Linear regression with 
 elastic-net regularization [@zou_hastie_2005] is a widely utilized tool when performing model-based analyses. 
 The basis of this method is that it allows for a combination of L1-regularization and L2-regularization
@@ -45,7 +45,7 @@ performing thousands of these fits will still require significant computational 
 in a serial fashion on a CPU. However, by using GEN, massively parallel processing can be performed in order to 
 achieve significant speedup. This is due to the fact that modern GPUs consist of thousands of computational cores
 that can be utilized. Moreover, although the processing in GEN is performed using the C programming language and 
-the CUDA parallel programming framework, a MEX-interface is used to allow for this code to be called within the MATLAB 
+NVIDIA's (NVIDIA, Santa Clara, CA) Compute Unified Device Architecture (CUDA) parallel programming framework, a MEX-interface is used to allow for this code to be called within the MATLAB 
 programming language.
 
 # Statement of Need
