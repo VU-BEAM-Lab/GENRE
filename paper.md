@@ -33,8 +33,8 @@ fastest packages that is currently available is glmnet [@friedman_hastie_tibshir
 Fortran implementations of several different types of regression. In the case of its implementation of linear
 regression with elastic-net regularization, the objective function shown in (eq. \ref{eq:1}) is minimized. 
 
-\begin{equation}
 \DeclareMathOperator*{\argmin}{arg\,min}
+\begin{equation}
 \boldsymbol{\hat\beta} = \argmin\limits_{\boldsymbol{\beta}}\frac{1}{2N}\sum_{i=1}^{N}  \left(\boldsymbol{y}_{i} - \sum_{j=1}^{P} \boldsymbol{X}_{ij}\boldsymbol{\beta}_{j}\right)^{2} + \lambda \left( \alpha \left\| \boldsymbol{\beta} \right\|_{1} + \frac{ \left(1 - \alpha \right)\left\| \boldsymbol{\beta} \right\|_{2}^{2}}{2} \right)
 \end{equation}
 
