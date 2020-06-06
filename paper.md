@@ -1,5 +1,5 @@
 ---
-title: 'GEN: GPU Elastic-Net'
+title: 'GEN: A GPU-Accelerated Package for Massively Parallel Linear Regression with Elastic-Net Regularization'
 tags:
   - MATLAB
   - GPU computing
