@@ -29,7 +29,7 @@ to be applied to a given regression problem. Therefore, feature selection and co
 shrinkage are performed while still allowing for the presence of groups of correlated features.
 Now, the process of performing these model fits can be computationally expensive, and one of the 
 fastest packages that is currently available is glmnet [@friedman_hastie_tibshirani_2010], 
-[@qian_hastie_tibshirani_simon_2013], [@hastie_qian_2014]. This package provides highly efficient 
+[@qian_hastie_friedman_tibshirani_simon_2013], [@hastie_qian_2014]. This package provides highly efficient 
 Fortran implementations of several different types of regression. In the case of its implementation of linear
 regression with elastic-net regularization, the objective function shown in (eq. \ref{eq:1}) is minimized. 
 
