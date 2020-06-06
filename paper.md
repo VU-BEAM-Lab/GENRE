@@ -44,7 +44,7 @@ convergence criteria are satisfied. As previously stated, glmnet is highly effic
 performing thousands of these fits will still require significant computational time due to each one being executed 
 in a serial fashion on a CPU. However, by using GEN, massively parallel processing can be performed in order to 
 achieve significant speedup. This is due to the fact that modern GPUs consist of thousands of computational cores
-that can utilized. Moreover, although the processing in GEN is performed using the C programming language and 
+that can be utilized. Moreover, although the processing in GEN is performed using the C programming language and 
 the CUDA parallel programming framework, a MEX-interface is used to allow for this code to be called within the MATLAB 
 programming language.
 
