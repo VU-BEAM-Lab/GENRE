@@ -35,7 +35,7 @@ regression with elastic-net regularization, the objective function shown in (eq.
 
 \begin{equation}
 \begin{aligned}
-\boldsymbol{\hat\beta} = & \argmin\limits_{\boldsymbol{\beta}} \frac{1}{2N}\sum_{i=1}^{N}  \left(\boldsymbol{y}_{i} - \sum_{j=1}^{P} \boldsymbol{X}_{ij}\boldsymbol{\beta}_{j}\right)^{2} + \lambda \left( \alpha \left\| \boldsymbol{\beta} \right\|_{1} + \frac{ \left(1 - \alpha \right)\left\| \boldsymbol{\beta} \right\|_{2}^{2}}{2} \right) \label{eq:1} 
+\boldsymbol{\hat\beta} = \argmin\limits_{\boldsymbol{\beta}} \frac{1}{2N}\sum_{i=1}^{N} \left(\boldsymbol{y}_{i} - \sum_{j=1}^{P} \boldsymbol{X}_{ij}\boldsymbol{\beta}_{j}\right)^{2} + \lambda \left( \alpha \left\| \boldsymbol{\beta} \right\|_{1} + \frac{ \left(1 - \alpha \right)\left\| \boldsymbol{\beta} \right\|_{2}^{2}}{2} \right) \label{eq:1} 
 \end{aligned}
 \end{equation}
 
