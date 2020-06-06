@@ -48,6 +48,9 @@ that can be utilized. Moreover, although the processing in GEN is performed usin
 the CUDA parallel programming framework, a MEX-interface is used to allow for this code to be called within the MATLAB 
 programming language.
 
+# Statement of Need
+The core motivation for developing GEN was that many of the available packages for performing linear regression with elastic-net regularization focus on achieving high performance in terms of computational time or resource consumption for single model fits. However, they often do not address the case in which there is a need to perform many model fits. 
+
 # Acknowledgements
 This work was supported by NIH grants R01EB020040 and S10OD016216-01 and NAVSEA grant N0002419C4302.
 
