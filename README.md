@@ -12,3 +12,12 @@ Before compiling the code, you should first check to see that MATLAB recognizes 
 mexcuda GEN_GPU_single_precision.cu
 mexcuda GEN_GPU_double_precision.cu
 ```
+
+The same commands can be used for Linux OS, but the path to the CUDA toolkit library must also be included. This is illustrated by the following commands.
+
+```Matlab
+mexcuda GEN_GPU_single_precision.cu -L/usr/local/cuda-10.0/lib64
+mexcuda GEN_GPU_double_precision.cu -L/usr/local/cuda-10.0/lib64
+```
+
+Note that there might be differences in your path compared to the one shown above, such as in regards to the version of the CUDA toolkit that is being used. In addition, if desired, the ```-v``` flag can be included at the end of each command to display compilation details.
