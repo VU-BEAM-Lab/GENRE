@@ -9,15 +9,19 @@ In order to utilize GEN, a CUDA-capable NVIDIA GPU along with an available relea
 Before compiling the code, you should first check to see that MATLAB recognizes your GPU card. To do so, go to the command prompt and type ```gpuDevice```. If successful, the properties of the GPU will be displayed. If an error is returned, then possible causes will most likely be related to the graphics driver or the toolkit version that is installed. Once the GPU is recognized, the next step is to compile the MEX-files that contain the C/CUDA code. Go to the MATLAB directory that contains the repository folders and add them to your MATLAB path. For Windows OS, type the following commands into the MATLAB command prompt.
 
 ```Matlab
+cd GEN_GPU_Single_Precision_Code
 mexcuda GEN_GPU_single_precision.cu
+cd ../GEN_GPU_Double_Precision_Code
 mexcuda GEN_GPU_double_precision.cu
 ```
 
 The same commands can be used for Linux OS, but the path to the CUDA toolkit library must also be included. This is illustrated by the following commands.
 
 ```Matlab
+cd GEN_GPU_Single_Precision_Code
 mexcuda GEN_GPU_single_precision.cu -L/usr/local/cuda-10.0/lib64
+cd ../GEN_GPU_Double_Precision_Code
 mexcuda GEN_GPU_double_precision.cu -L/usr/local/cuda-10.0/lib64
 ```
 
-Note that there might be differences in your path compared to the one shown above, such as in regards to the version of the CUDA toolkit that is being used. In addition, if desired, the ```-v``` flag can be included at the end of each command to display compilation details.
+Note that there might be differences in your path compared to the one shown above, such as in regards to the version of the CUDA toolkit that is being used. In addition, if desired, the ```-v``` flag can be included at the end of each command to display compilation details. If the compilation process is successful, then it will display a success message for each compilation in the command prompt. In addition, a compiled MEX-file will appear in each folder. The compilation is process is important, and it is recommended to recompile any time a different release of MATLAB is utilized.
