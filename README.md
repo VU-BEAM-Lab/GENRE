@@ -1,4 +1,4 @@
-# GEN
+# GEN: A GPU-Based Package for Massively Parallel Linear Regression with Elastic-Net Regularization
 
 ## Table of Contents
 1. [Overview](#Overview)
