@@ -16,7 +16,7 @@ Before compiling the code, you should first check to see that MATLAB recognizes 
 ```Matlab
 cd GEN_GPU_Single_Precision_Code
 mexcuda GEN_GPU_single_precision.cu
-cd ../GEN_GPU_Double_Precision_Code
+cd ..\GEN_GPU_Double_Precision_Code
 mexcuda GEN_GPU_double_precision.cu
 ```
 
