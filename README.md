@@ -63,6 +63,8 @@ GEN consists of several files. The main program is the ```GEN.m``` script, and i
 
 ```lambda_values_h```: A vector containing ![lambda](https://latex.codecogs.com/svg.latex?%5Clambda) for each model fit
 
-```tolerance_values_h```: A vector containing the tolerance convergence criterion value for each model fit (values such as 1e-4 or 1e-5 are reasonable). For example, if set to 1e-4, then a model fit will be stop if the maximum coefficient change between iterations of cyclic coordinate descent is less than this number.
+```tolerance_values_h```: A vector containing the tolerance convergence criterion value for each model fit (values such as 1E-4 or 1E-5 are reasonable). For example, if set to 1E-4, then cyclic coordinate descent will stop if the maximum model coefficient change across all of the coefficients between iterations of cyclic coordinate descent is less than this number. Essentially, the model coefficient change between iterations is calculated for each coefficient, and the maximum change across the coefficients is compared to the tolerance value.
 
 ```max_iterations_values_h```: A vector containing the maximum number of iterations convergence criterion for each model fit (100,000 iterations is reasonable because we typically expect the tolerance criterion to be met first)
+
+```transformation_flag```: A flag that specifies which transformation option to use for the model fits. ```transformation_flag = 1``` means that each predictor column in the model matrix for each model fit will be standardized on the GPU using the formula 
