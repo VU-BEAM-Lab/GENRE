@@ -59,4 +59,8 @@ GEN consists of several files. The main program is the ```GEN.m``` script, and i
 
 ```output_filename```: The name of the output file containing the computed model coefficients
 
-```alpha_values_h ```: A vector of alp
+```alpha_values_h```: A vector containing ![alpha](https://latex.codecogs.com/svg.latex?%5Calpha) for each model fit
+
+```lambda_values_h```: A vector containing ![lambda](https://latex.codecogs.com/svg.latex?%5Clambda) for each model fit
+
+```tolerance_values_h```: A vector containing the tolerance convergence criterion value for each model fit (this can be varied, but values such as 1e-4 or 1e-5 are reasonable). For example, if set to 1e-4, then a model fit will be stop if the maximum coefficient change between iterations of cyclic coordinate descent is less than this number.
