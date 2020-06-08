@@ -82,11 +82,40 @@ In this tutorial, we will first write a script to generate model data in order t
 
 ```Matlab
 % Define the number of model fits to generate data for
-num_fits = 1000;
+num_fits = 100;
 
 % Define the path to the directory in which the model data files will be saved
-save_path = 'insert/path/here';
+save_path = 'insert path here';
 
+% Generate and save the model data for each model fit
+for ii = 1:num_fits
+    % Randomly generate the number of observations and predictors for the model fit
+    num_observations = randi([50 200], 1);
+    num_predictors = randi([1000 2000], 1);
+    
+    % Create the model matrix for the model fit
+    X = randn(num_observations, num_predictors);
+    
+    % Randomly determine whether to add an intercept term or not
+    intercept_flag = randi([0 1], 1);
+    
+    % Add a column vector of ones to the model matrix if an intercept term is supposed to be included
+    if intercept_flag == 1
+        X = [ones(num_observations, 1), X];
+        num_predictors = num_predictors + 1;
+    end
+    
+    % Randomly generate the model coefficients
+    B = randn(num_predictors, 1) .* 100;
+    
+    % Create the observed data to which the model matrix will be fit
+    y = X * B;
+    
+    % Define the name of the file to which the model data will be saved
+    filename = ['model_data_' num2str(ii) '.mat'];
+    
+    % Save the data for the model fit
+    save(fullfile(save_path, filename), '-v7.3', 'X', 'y', 'intercept_flag');
 
-a = 1;
+end
 ```
