@@ -78,8 +78,15 @@ After the data is organized, the ```GEN.m``` script will then call either the GE
 
 
 ## Tutorial
-In this tutorial, we will first write a script to generate model data in order to familiarize ourselves with the model data format that is required for GEN. We will then use GEN to process the data. To begin, create a new script within MATLAB called ```data_creator.m```, and type the following lines of code within the file.
+In this tutorial, we will first write a script to generate model data in order to familiarize ourselves with the model data format that is required for GEN. We will then use GEN to process the data. To begin, create a new script within MATLAB called ```data_creator.m```, and type the following lines of code within the file. Note that the ```save_path``` variable should be defined by yourself.
 
 ```Matlab
+% Define the number of model fits to generate data for
+num_fits = 1000;
+
+% Define the path to the directory in which the model data files will be saved
+save_path = 'insert/path/here';
+
+
 a = 1;
 ```
