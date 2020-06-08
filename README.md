@@ -50,3 +50,8 @@ As previously stated, GEN allows for many models to run in parallel on the GPU. 
 GEN consists of several files. The main program is the ```GEN.m``` script, and it is the only file that the user will need to modify. The inputs to this script are described in detail below.
 
 ```precision```: Specifies which precision to use for the model fit calculations on the GPU (```precision = single``` is recommended)
+```num_fits```: The number of model fits to perform
+```data_path```: Path to the directory containing the model data files described in the previous section
+```save_path```: Path to the directory where the output file containing the computed model coefficients will be saved to
+```output_filename```: The name of the output file containing the computed model coefficients
+```alpha_values_h ```: A vector of alp
