@@ -3,7 +3,7 @@
 ## Table of Contents
 1. [Overview](#Overview)
 2. [Setup](#Setup)
-3. [Data Format](#Data Format)
+3. [Format](#Data Format)
 4. [Interface](#Interface)
 
 ## Overview
