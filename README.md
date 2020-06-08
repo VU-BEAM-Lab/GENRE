@@ -6,6 +6,7 @@
 3. [Model Data Format](#Model-Data-Format)
 4. [User-Defined Parameters](#User-Defined-Parameters)
 5. [Running the Code](#Running-the-Code)
+6. [Tutorial](#Tutorial)
 
 ## Overview
 GEN (GPU Elastic-Net) is a MATLAB package that allows for many instances of linear regression with elastic-net regularization to be performed in parallel on a GPU. The specific objective function that is minimized is shown below.
@@ -76,3 +77,4 @@ Once the user-defined parameters are entered into the ```GEN.m``` script, you ca
 After the data is organized, the ```GEN.m``` script will then call either the GEN_GPU_single_precision MEX-file or the GEN_GPU_double_precision MEX-file depending on which option is selected for ```precision```. These two files contain the C/CUDA code that allows for the model fits to be performed in paralle on the GPU. The output of both of these functions is ```B```, which is a 1-D array that contains the computed model coefficients across all of the model fits. The model coefficients for each model fit are then stored into ```B_cell``` so that each entry in the cell contains the model coefficients for one model fit. ```B_cell``` is saved in a ```.mat``` file. The name of the file and the directory to which the file is saved are specified as user-defined parameters.
 
 
+## Tutorial
