@@ -49,7 +49,7 @@ As previously stated, GEN allows for many models to run in parallel on the GPU. 
 ## Interface
 GEN consists of several files. The main program is the ```GEN.m``` script, and it is the only file that the user will need to modify. The inputs to this script are described in detail below.
 
-```precision```: Specifies which precision to use for the model fit calculations on the GPU (```precision = single``` is recommended)
+```precision```: Specifies which precision to use for the model fit calculations on the GPU (```precision = 'single'``` is recommended)
 
 ```num_fits```: The number of model fits to perform
 
