@@ -49,7 +49,7 @@ As previously stated, GEN allows for many models to run in parallel on the GPU. 
 ## Interface
 GEN consists of several files. The main program is the ```GEN.m``` script, and it is the only file that the user will need to modify. The inputs to this script are described in detail below.
 
-```precision```: Specifies which precision to use for the model fit calculations on the GPU. Setting ```precision = 'single'``` is recommended due to the fact that there is typically a performance penalty when using double precision on GPUs due to there being fewer FP64 units than FP32 units).
+```precision```: Specifies which precision to use for the model fit calculations on the GPU. Setting ```precision = 'single'``` is recommended due to the fact that there is typically a performance penalty when using double precision on GPUs due to there being fewer FP64 units than FP32 units. Moreover, using double precision can negatively impact other factors such as memory operations on the GPU because one value of type double is 64 bits while one value of type single is 32 bits.
 
 ```num_fits```: The number of model fits to perform
 
