@@ -61,7 +61,7 @@ GEN consists of several files. The main program is the ```GEN.m``` script, and i
 
 ```alpha_values_h```: A vector containing ![alpha](https://latex.codecogs.com/svg.latex?%5Calpha) for each model fit.
 
-```lambda_values_h```: A vector containing ![lambda](https://latex.codecogs.com/svg.latex?%5Clambda) for each model fit. Note that GEN only computes the model coefficients for one value of ![lambda](https://latex.codecogs.com/svg.latex?%5Clambda) for each model fit instead of a path of lambda values.
+```lambda_values_h```: A vector containing ![lambda](https://latex.codecogs.com/svg.latex?%5Clambda) for each model fit. Note that GEN only computes the model coefficients for one value of ![lambda](https://latex.codecogs.com/svg.latex?%5Clambda) for each model fit. This is different from other packages like glmnet, which computes the coefficients for a path of lambda values.
 
 ```tolerance_values_h```: A vector containing the tolerance convergence criterion value for each model fit (values such as 1E-4 or 1E-5 are reasonable). For example, if set to 1E-4, then cyclic coordinate descent will stop if the maximum model coefficient change across all of the coefficients between iterations of cyclic coordinate descent is less than this number. Essentially, the model coefficient change between iterations is calculated for each coefficient, and the maximum change across the coefficients is compared to the tolerance value.
 
