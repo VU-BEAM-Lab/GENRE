@@ -101,7 +101,7 @@ for ii = 1:num_fits
     % Randomly determine whether to add an intercept term or not
     intercept_flag = randi([0 1], 1);
     
-    % Add a column vector of ones to the model matrix if an intercept term is supposed to be included
+    % Add a column vector of ones to the beginning of the model matrix if an intercept term is supposed to be included
     if intercept_flag == 1
         X = [ones(num_observations, 1), X];
         num_predictors = num_predictors + 1;
