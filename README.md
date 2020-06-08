@@ -49,22 +49,22 @@ As previously stated, GEN allows for many models to run in parallel on the GPU. 
 ## Interface
 GEN consists of several files. The main program is the ```GEN.m``` script, and it is the only file that the user will need to modify. The inputs to this script are described in detail below.
 
-```precision```: Specifies which precision to use for the model fit calculations on the GPU. Setting ```precision = 'single'``` is recommended due to the fact that there is typically a performance penalty when using double precision on GPUs due to there being fewer FP64 units than FP32 units. Moreover, using double precision can negatively impact other factors such as memory operations on the GPU because one value of type double is 64 bits while one value of type single is 32 bits.
+```precision```: Specifies which precision to use for the model fit calculations on the GPU. Setting ```precision = 'single'``` is recommended due to the fact that there is typically a performance penalty when using double precision on GPUs due to there being fewer FP64 units than FP32 units. Moreover, using double precision requires more memory resources in terms of storage and bandwidth because one value of type double is 64 bits while one value of type single is 32 bits.
 
-```num_fits```: The number of model fits to perform
+```num_fits```: The number of model fits to perform.
 
-```data_path```: Path to the directory containing the model data files described in the previous section
+```data_path```: Path to the directory containing the model data files described in the previous section.
 
-```save_path```: Path to the directory where the output file containing the computed model coefficients will be saved to
+```save_path```: Path to the directory where the output file containing the computed model coefficients will be saved to.
 
-```output_filename```: The name of the output file containing the computed model coefficients
+```output_filename```: The name of the output file containing the computed model coefficients.
 
-```alpha_values_h```: A vector containing ![alpha](https://latex.codecogs.com/svg.latex?%5Calpha) for each model fit
+```alpha_values_h```: A vector containing ![alpha](https://latex.codecogs.com/svg.latex?%5Calpha) for each model fit.
 
-```lambda_values_h```: A vector containing ![lambda](https://latex.codecogs.com/svg.latex?%5Clambda) for each model fit
+```lambda_values_h```: A vector containing ![lambda](https://latex.codecogs.com/svg.latex?%5Clambda) for each model fit.
 
 ```tolerance_values_h```: A vector containing the tolerance convergence criterion value for each model fit (values such as 1E-4 or 1E-5 are reasonable). For example, if set to 1E-4, then cyclic coordinate descent will stop if the maximum model coefficient change across all of the coefficients between iterations of cyclic coordinate descent is less than this number. Essentially, the model coefficient change between iterations is calculated for each coefficient, and the maximum change across the coefficients is compared to the tolerance value.
 
-```max_iterations_values_h```: A vector containing the maximum number of iterations convergence criterion for each model fit (100,000 iterations is reasonable because we typically expect the tolerance criterion to be met first)
+```max_iterations_values_h```: A vector containing the maximum number of iterations convergence criterion for each model fit (100,000 iterations is reasonable because we typically expect the tolerance criterion to be met first).
 
 ```transformation_flag```: A flag that specifies which transformation option to use for the model fits. ```transformation_flag = 1``` means that each predictor column in the model matrix for each model fit will be standardized on the GPU using the formula 
