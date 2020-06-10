@@ -34,7 +34,7 @@ cd ..\GEN_GPU_Double_Precision_Code
 mexcuda GEN_GPU_double_precision.cu
 ```
 
-The same commands can be used for Linux OS, but the path to the CUDA toolkit library must also be included. This is illustrated by the following commands.
+The same commands can be used for Linux OS, but the path to the CUDA toolkit library must also be included. This is illustrated by the following commands. Note that if you put the path to the CUDA toolkit library in the LD_LIBRARY_PATH variable, then you do not need to type out the library path in the commands below.
 
 ```Matlab
 cd GEN_GPU_Single_Precision_Code
