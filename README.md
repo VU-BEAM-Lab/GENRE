@@ -84,22 +84,26 @@ In this tutorial, we will first write a script to generate model data in order t
 % This script generates toy datasets for illustrating the model data format for GEN
 
 % Define the number of model fits to generate data for
-num_fits = 100;
+num_fits = 2000;
 
 % Define the path to the directory in which the model data files will be saved
 save_path = 'insert path here';
 
 % Generate and save the model data for each model fit
 for ii = 1:num_fits
-    % Randomly generate the number of observations and predictors for the model fit
-    num_observations = randi([50 200], 1);
-    num_predictors = randi([1000 2000], 1);
+    % Randomly generate the number of observations and predictors for the model fit 
+    num_observations = randi([100 200], 1);
+    num_predictors = randi([400 500], 1);
     
     % Create the model matrix for the model fit
     X = randn(num_observations, num_predictors);
     
+    % Add an intercept term to the model (for this tutorial, we will include an intercept term to all of the models, but the commented 
+    line below also allows the option to randomly determine whether to include an intercept term or not)
+    intercept_flag = 1;
+    
     % Randomly determine whether to add an intercept term or not
-    intercept_flag = randi([0 1], 1);
+    % intercept_flag = randi([0 1], 1);
     
     % Add a column vector of ones to the beginning of the model matrix if an intercept term is supposed to be included
     if intercept_flag == 1
