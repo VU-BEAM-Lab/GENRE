@@ -183,3 +183,9 @@ Note that since we included an intercept term in every model, the first model co
    variance formula. Therefore, if the standard deviation of ```y``` is 0 for a particular model fit, then the model fit will not be 
    performed. However, the other model fits will still be performed assuming each of them has a standard deviation of ```y``` that is not 0. 
    When a model fit is not performed, a vector of zeros is returned as the model coefficients corresponding to the model fit.
+
+2. Make sure that for the model matrices, the only predictor column where all of the observations are the same value is the column
+   corresponding to the intercept term. This is due to the fact that standardization or normalization is applied to all of the other 
+   predictor columns. Therefore, a division by 0 will occur if a predictor column has a standard deviation of 0.
+   
+
