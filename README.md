@@ -125,3 +125,5 @@ for ii = 1:num_fits
 
 end
 ```
+
+Once this script is completed, run it within MATLAB. This will generate the data for each model fit, and each set of data is saved to an individual file located in the specified directory. The next step is to process the data. Open the ```GEN.m``` script within MATLAB.
