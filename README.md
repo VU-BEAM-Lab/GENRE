@@ -186,6 +186,6 @@ Note that since we included an intercept term in every model, the first model co
 
 2. Make sure that for the model matrices, the only predictor column where all of the observations are the same value is the column
    corresponding to the intercept term. This is due to the fact that standardization or normalization is applied to all of the other 
-   predictor columns. Therefore, a division by 0 will occur if a predictor column has a standard deviation of 0.
+   predictor columns. Therefore, a division by 0 will occur if all of the observations in a predictor column are the same.
    
 
