@@ -7,6 +7,7 @@
 4. [User-Defined Parameters](#User-Defined-Parameters)
 5. [Running the Code](#Running-the-Code)
 6. [Tutorial](#Tutorial)
+7. [Additional Notes](#Additional-Notes)
 
 ## Overview
 GEN (GPU Elastic-Net) is a MATLAB package that allows for many instances of linear regression with elastic-net regularization to be performed in parallel on a GPU. The specific objective function that is minimized is shown below.
