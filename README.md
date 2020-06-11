@@ -207,8 +207,8 @@ Note that since we included an intercept term in every model, the first model co
    loop, so ```clear mex``` is included at the top of the script. Therefore, each time you run the script, it will be called before either
    of the MEX-files is called.
    
-4. As previously stated, each model fit is supplied a lambda value in GEN, so the coefficients are not calculated for a path of lambda
-   values. One way of doing this in GEN is to make multiple model files containing the same model. Then, a different lambda value can
+4. As previously stated, each model fit is supplied a lambda value in ```GEN```, so the coefficients are not calculated for a path of lambda
+   values. One way of doing this in ```GEN``` is to make multiple model files containing the same model. Then, a different lambda value can
    be supplied to each model fit via the ```lambda_values_h``` vector in the ```GEN.m``` script. Therefore, the model coefficients for the 
    same model using different lambda values will be computed in parallel on the GPU. In addition, another way of calculating the 
    coefficients for multiple lambda values is to follow the method described in 3 above. For example, the ```GEN.m``` script can be modified 
