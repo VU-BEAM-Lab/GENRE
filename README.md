@@ -216,6 +216,6 @@ Note that since we included an intercept term in every model, the first model co
    iteration of the for loop, the ```lambda_values_h``` vector can be modified to have new values and then be supplied to the MEX-files.
    
 ## License
-```GEN``` is free software made available under the Apache License, Version 2.0. For details, refer to the [LICENSE] file.
+```GEN``` is free software made available under the Apache License, Version 2.0. For details, refer to the [Contribution guidelines for this project](LICENSE) file.
    
  
