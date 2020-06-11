@@ -167,3 +167,12 @@ max_iterations_values_h = repmat(100000, [num_fits, 1]);
 % Specify the flag that determines which transformation option to use for all of the model fits (note that the same transformation flag has
 % to be used for all of the model fits)
 transformation_flag = 1;
+```
+
+Once you are finished entering the values listed above, run the ```GEN.m``` script. This will perform the model fits on the GPU, and it will save out the computed model coefficients to the specified directory. The variable that is saved to the file is ```B_cell```, and it should also be available within the MATLAB workspace. Each entry in this cell contains the computed model coefficients for a specific fit. For example, to view the coefficients for the first model fit, type the following command within the MATLAB command prompt.
+
+```Matlab
+B_first_model_fit = B_cell{1};
+```
+
+Note that since we included an intercept term in every model, the first model coefficient is the value of the intercept term.
