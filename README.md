@@ -179,4 +179,7 @@ B_first_model_fit = B_cell{1};
 Note that since we included an intercept term in every model, the first model coefficient is the value of the intercept term. In addition, also note that ```transformation_flag = 1``` for this tutorial, which means that unstandardized model matrices were transferred to the GPU, where they were then standardized. As a result, the coefficients that were returned represent the unstandardized coefficients. To obtain standardized coefficients, you would need to standardize all of your model matrices before saving them in the model data files. Then, you would need to set ```transformation_flag = 3``` in the ```GEN.m``` script to indicate that the input model matrices are already standardized.
 
 ## Additional Notes 
-1. As previously stated, ```y``` for each model fit is standardized on the GPU when the model fit is per
+1. As previously stated, ```y``` for each model fit is always standardized on the GPU by dividing it by its standard deviation using the 1/N  
+   variance formula. Therefore, if the standard deviation of ```y``` is 0 for a particular model fit, then the model fit will not be 
+   performed. However, the other model fits will still be performed assuming each of them has a standard deviation of ```y``` that is not 0. 
+   When a model fit is not performed, a vector of zeros is returned as the model coefficients corresponding to the model fit.
