@@ -164,5 +164,5 @@ tolerance_values_h = repmat(1E-4, [num_fits, 1]);
 % iterations for each of the model fits)
 max_iterations_values_h = repmat(100000, [num_fits, 1]);
 
-% Specify the flag that determines which transformation option to use for all of the model fits
+% Specify the flag that determines which transformation option to use for all of the model fits (note that the same transformation flag has % to be used for all of the model fits)
 transformation_flag = 1;
