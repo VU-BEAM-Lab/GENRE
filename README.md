@@ -93,7 +93,7 @@ save_path = 'insert path here';
 for ii = 1:num_fits
     % Randomly generate the number of observations and predictors for the model fit 
     num_observations = randi([100 200], 1);
-    num_predictors = randi([400 500], 1);
+    num_predictors = randi([800 900], 1);
     
     % Create the model matrix for the model fit
     X = randn(num_observations, num_predictors);
