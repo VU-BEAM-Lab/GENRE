@@ -177,3 +177,5 @@ B_first_model_fit = B_cell{1};
 ```
 
 Note that since we included an intercept term in every model, the first model coefficient is the value of the intercept term. In addition, also note that ```transformation_flag = 1``` for this tutorial, which means that unstandardized model matrices were transferred to the GPU, where they were then standardized. As a result, the coefficients that were returned represent the unstandardized coefficients. To obtain standardized coefficients, you would need to standardize all of your model matrices before saving them in the model data files. Then, you would need to set ```transformation_flag = 3``` in the ```GEN.m``` script to indicate that the input model matrices are already standardized.
+
+## Additional Notes 
