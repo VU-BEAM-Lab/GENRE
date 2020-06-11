@@ -87,7 +87,7 @@ In this tutorial, we will first write a script to generate model data in order t
 num_fits = 2000;
 
 % Define the path to the directory in which the model data files will be saved
-save_path = 'insert path here';
+save_path = 'enter path here';
 
 % Generate and save the model data for each model fit
 for ii = 1:num_fits
@@ -126,4 +126,41 @@ for ii = 1:num_fits
 end
 ```
 
-Once this script is completed, run it within MATLAB. This will generate the data for each model fit, and each set of data is saved to an individual file located in the specified directory. The next step is to process the data. Open the ```GEN.m``` script within MATLAB.
+Once this script is written, run it within MATLAB. This will generate the data for each model fit, and each set of data is saved to an individual file located in the specified directory. The next step is to process the data. Open the ```GEN.m``` script and go to the section titled User-Defined Parameters. For this tutorial, we will specify the parameters as shown in the lines of code below. Enter these same values into your copy of the script.
+
+```Matlab
+% Specify whether to use single precision or double precision (there is
+% typically a performance penalty when using double precision instead of
+% single precision on GPUs, but using single precision has the trade-off of
+% reduced numerical accuracy)
+precision = 'single';
+
+% Specify the number of model fits
+num_fits = 4000;
+
+% Specify the path to the files that contain the data for the model fits
+data_path = 'enter the same path that you used in the data generator script';
+
+% Specify the path to save out the model coefficients that are computed for
+% the model fits
+save_path = 'enter the path to the directory that you want the results to be saved to';
+
+% Specify the name of the output file
+output_filename = 'model_coefficients.mat';
+
+% Define or load in the alpha values that are used for the model fits (for this tutorial, we will randomly generate an alpha value for each % of the model fits)
+alpha_values_h = rand(num_fits, 1); % rand randomly generates numbers between 0 and 1
+
+% Define or load the in the lambda values that are used for the model fits (for this tutorial, we will use a lambda value of 0.001 for each  % of the model fits)
+lambda_values_h = repmat(0.001, [num_fits, 1]);
+
+% Define the tolerance values that are used for the model fits (for this tutorial, we will use a tolerance value of 1E-4 for each of the 
+% model fits)
+tolerance_values_h = repmat(1E-4, [num_fits, 1]);
+
+% Define the maximum iterations values that are used for the model fits (for this tutorial, we will use 100,000 as the maximum number of  
+% iterations for each of the model fits)
+max_iterations_values_h = repmat(100000, [num_fits, 1]);
+
+% Specify the flag that determines which transformation option to use for all of the model fits
+transformation_flag = 1;
