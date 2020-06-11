@@ -208,10 +208,10 @@ Note that since we included an intercept term in every model, the first model co
    
 4. As previously stated, each model fit is supplied a lambda value in GEN, so the coefficients are not calculated for a path of lambda
    values. One way of doing this in GEN is to make multiple model files containing the same model. Then, a different lambda value can
-   be supplied to each model fit in the ```GEN.m``` script. Therefore, the model coefficients for the same model using different lambda
-   values will be computed in parallel on the GPU. In addition, another way of calculating the coefficients for multiple lambda values
-   is to follow the method described in 3 above. For example, the ```GEN.m``` script can be modified to call either the
-   ```GEN_GPU_single_precision``` MEX-file or the ```GEN_GPU_double_precision``` MEX-file in a for loop. In each iteration of the for loop,
-   a new ```lambda_values_h``` vector can be supplied.
+   be supplied to each model fit via the ```lambda_values_h``` array in the ```GEN.m``` script. Therefore, the model coefficients for the 
+   same model using different lambda values will be computed in parallel on the GPU. In addition, another way of calculating the 
+   coefficients for multiple lambda values is to follow the method described in 3 above. For example, the ```GEN.m``` script can be modified 
+   to call either the ```GEN_GPU_single_precision``` MEX-file or the ```GEN_GPU_double_precision``` MEX-file in a for loop. In each 
+   iteration of the for loop, the ```lambda_values_h``` array can be modified to have new values and then be supplied to the MEX-files.
    
-
+ 
