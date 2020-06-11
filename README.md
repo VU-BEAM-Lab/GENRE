@@ -8,9 +8,10 @@
 5. [Running the Code](#Running-the-Code)
 6. [Tutorial](#Tutorial)
 7. [Additional Notes](#Additional-Notes)
+8. [License](#License)
 
 ## Overview
-GEN (GPU Elastic-Net) is a MATLAB package that allows for many instances of linear regression with elastic-net regularization to be performed in parallel on a GPU. The specific objective function that is minimized is shown below.
+```GEN``` (GPU Elastic-Net) is a MATLAB package that allows for many instances of linear regression with elastic-net regularization to be performed in parallel on a GPU. The specific objective function that is minimized is shown below.
 
 ![objective function](https://latex.codecogs.com/svg.latex?%5Cboldsymbol%7B%5Chat%5Cbeta%7D%20%3D%20%5Cunderset%7B%5Cboldsymbol%7B%5Cbeta%7D%7D%7B%5Cmathrm%7Bargmin%7D%7D%5Cfrac%7B1%7D%7B2N%7D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%20%5Cleft%28%5Cboldsymbol%7By%7D_%7Bi%7D%20-%20%5Csum_%7Bj%3D1%7D%5E%7BP%7D%20%5Cboldsymbol%7BX%7D_%7Bij%7D%5Cboldsymbol%7B%5Cbeta%7D_%7Bj%7D%5Cright%29%5E%7B2%7D%20&plus;%20%5Clambda%20%5Cleft%28%20%5Calpha%20%5Cleft%5C%7C%20%5Cboldsymbol%7B%5Cbeta%7D%20%5Cright%5C%7C_%7B1%7D%20&plus;%20%5Cfrac%7B%20%5Cleft%281%20-%20%5Calpha%20%5Cright%29%5Cleft%5C%7C%20%5Cboldsymbol%7B%5Cbeta%7D%20%5Cright%5C%7C_%7B2%7D%5E%7B2%7D%7D%7B2%7D%20%5Cright%29)
 
@@ -213,5 +214,8 @@ Note that since we included an intercept term in every model, the first model co
    coefficients for multiple lambda values is to follow the method described in 3 above. For example, the ```GEN.m``` script can be modified 
    to call either the ```GEN_GPU_single_precision``` MEX-file or the ```GEN_GPU_double_precision``` MEX-file in a for loop. In each 
    iteration of the for loop, the ```lambda_values_h``` vector can be modified to have new values and then be supplied to the MEX-files.
+   
+## License
+
    
  
