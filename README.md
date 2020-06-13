@@ -213,7 +213,7 @@ Note that since we included an intercept term in every model, the first model co
    coefficients for the same model using different lambda values will be computed in parallel on the GPU. In addition, another way of 
    calculating the coefficients for multiple lambda values is to follow the method described in 3 above. For example, the ```GENRE.m```  
    script can be modified to call either the ```GENRE_GPU_single_precision``` MEX-file or the ```GENRE_GPU_double_precision``` MEX-file in a  
-   for loop. In each iteration of the for loop, the ```lambda_values_h``` vector can be modified to have new values and then be supplied to 
+   for loop. In each iteration of the for loop, the ```lambda_values_h``` vector can be modified to have new values and then be supplied to
    the MEX-files.
    
 ## License
