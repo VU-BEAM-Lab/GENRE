@@ -59,9 +59,10 @@ As previously stated, ```GENRE``` allows for many models to run in parallel on t
 
 ```data_path```: Path to the directory containing the model data files described in the previous section.
 
-```save_path```: Path to the directory where the output file containing the computed model coefficients will be saved to.
+```save_path```: Path to the directory where the output file containing the parameters and the computed model coefficients for the model 
+fits will be saved to.
 
-```output_filename```: The name of the output file containing the computed model coefficients.
+```output_filename```: The name of the output file containing the parameters and the computed model coefficients for the model fits.
 
 ```alpha_values_h```: A vector containing ![alpha](https://latex.codecogs.com/svg.latex?%5Calpha) for each model fit.
 
@@ -143,8 +144,8 @@ num_fits = 4000;
 % Specify the path to the files that contain the data for the model fits
 data_path = 'enter the same path that you used in the data generator script';
 
-% Specify the path to save out the model coefficients that are computed for
-% the model fits
+% Specify the path to save out the parameters and the computed model coefficients
+% for the model fits
 save_path = 'enter the path to the directory that you want the results to be saved to';
 
 % Specify the name of the output file
@@ -171,7 +172,7 @@ max_iterations_values_h = repmat(100000, [num_fits, 1]);
 transformation_flag = 1;
 ```
 
-Once you are finished entering the values listed above, run the ```GENRE.m``` script. This will perform the model fits on the GPU, and it will save out the computed model coefficients to the specified directory. The variable containing the coefficients that is saved to the file is ```B_cell```, and it should also be available within the MATLAB workspace. Each entry in this cell contains the computed model coefficients for a specific fit. For example, to view the coefficients for the first model fit, type the following command within the MATLAB command prompt.
+Once you are finished entering the values listed above, run the ```GENRE.m``` script. This will perform the model fits on the GPU, and it will save out the parameters and the computed model coefficients for the model fits to the specified directory. The variable containing the coefficients that is saved to the file is ```B_cell```, and it should also be available within the MATLAB workspace. Each entry in this cell contains the computed model coefficients for a specific fit. For example, to view the coefficients for the first model fit, type the following command within the MATLAB command prompt.
 
 ```Matlab
 B_first_model_fit = B_cell{1};
