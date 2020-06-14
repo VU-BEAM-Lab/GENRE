@@ -89,7 +89,7 @@ In this tutorial, we will first write a script to generate model data in order t
 % This script generates toy datasets for illustrating the model data format for GENRE
 
 % Define the number of model fits to generate data for
-num_fits = 2000;
+num_fits = 5000;
 
 % Define the path to the directory in which the model data files will be saved
 save_path = 'enter path here';
@@ -98,7 +98,7 @@ save_path = 'enter path here';
 for ii = 1:num_fits
     % Randomly generate the number of observations and predictors for the model fit 
     num_observations = randi([100 200], 1);
-    num_predictors = randi([800 900], 1);
+    num_predictors = randi([400 500], 1);
     
     % Create the model matrix for the model fit
     X = randn(num_observations, num_predictors);
