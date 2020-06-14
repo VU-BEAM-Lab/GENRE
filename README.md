@@ -219,6 +219,12 @@ Note that since we included an intercept term in every model, the first model co
    for loop. In each iteration of the for loop, the ```lambda_values_h``` vector can be modified to have new values and then be supplied to
    the MEX-files.
    
+5. When possible, ```GENRE``` uses shared memory on the GPU when performing the model fits. This memory has lower latency than global memory     
+   on the GPU, so it can potentially improve performance. Whether shared memory is utilized or not is determined in the ```GENRE.m```
+   script, but it will usually be used if for the model matrix with the largest number of observations, the number of observations is less
+   than or equal to 250 observations for single precision and less than or equal to 125 observations for double precision. Note that if this
+   requirement is not met, then GPU global memory will be used for the model fits.
+   
 ## Comparing with Other Packages
 If you want to compare GENRE to other packages that perform linear regression with elastic-net regularization, you should check to see what convergence criteria these packages use in order to ensure that convergence for GENRE and the package being compared to it is being reached at similar points during optimization. For example, ```glmnet``` served as an inspiration for ```GENRE```, and during the development of ```GENRE```, its results were compared to those of ```glmnet```. Both packages use the same tolerance convergence criterion. Therefore, if you are comparing these two packages, make sure to set the ```thresh``` parameter of each model fit in ```glmnet``` to be the same as the corresponding value in the ```tolerance_values_h``` vector of ```GENRE```. In addition, when comparing with any package, make sure to use similar predictor transformations in regards to normalization or standardization. Adding on, for timing purposes, note that the ```GENRE.m``` script also includes loading in and organizing the data for all of the model fits because the ```data_organizer.m``` script is called within this script. It also includes saving the parameters and the computed model coefficients for the model fits. As a result, this should be taken into account when comparing the time that it takes for ```GENRE``` to run to the time that it takes for another package to run.
    
