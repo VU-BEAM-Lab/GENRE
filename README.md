@@ -223,7 +223,8 @@ Copyright 2020 Christopher Khan
 
 ```GENRE``` is free software made available under the Apache License, Version 2.0. For details, refer to the [LICENSE](LICENSE) file.
 
-## Contributors
-Christopher Khan and Brett Byram
+## Authors
+Repository Maintainer: Christopher Khan (christopher.m.khan@vanderbilt.edu)                                                                                                   
+Brett Byram
    
  
