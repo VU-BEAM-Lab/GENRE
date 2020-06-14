@@ -131,7 +131,7 @@ for ii = 1:num_fits
 end
 ```
 
-Once this script is written, run it within MATLAB. This will generate the data for each model fit, and each set of data is saved to an individual file located in the specified directory. The next step is to process the data. Open the ```GENRE.m``` script and go to the section titled %% User-Defined Parameters %%. For this tutorial, we will specify the parameters as shown in the lines of code below. Enter these same values into your copy of the script.
+Once this script is written, run it within MATLAB. This will generate the data for each model fit, and each set of data is saved to an individual file located in the specified directory. The next step is to process the data. Open the ```GENRE.m``` script and go to the section titled ```%% User-Defined Parameters %%```. For this tutorial, we will specify the parameters as shown in the lines of code below. Enter these same values into your copy of the script.
 
 ```Matlab
 % Specify whether to use single precision or double precision (there is
