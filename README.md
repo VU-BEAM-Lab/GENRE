@@ -88,7 +88,8 @@ In this tutorial, we will first write a script to generate model data in order t
 ```Matlab
 % This script generates toy datasets for illustrating the model data format for GENRE
 
-% Define the number of model fits to generate data for
+% Define the number of model fits to generate data for (this can be decreased if you do not have enough RAM or GPU VRAM for this many model 
+% fits)
 num_fits = 5000;
 
 % Define the path to the directory in which the model data files will be saved
@@ -141,7 +142,7 @@ Once this script is written, run it within MATLAB. This will generate the data f
 precision = 'single';
 
 % Specify the number of model fits
-num_fits = 4000;
+num_fits = 5000;
 
 % Specify the path to the files that contain the data for the model fits
 data_path = 'enter the same path that you used in the data generator script';
