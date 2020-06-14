@@ -217,7 +217,8 @@ Note that since we included an intercept term in every model, the first model co
    calculating the coefficients for multiple lambda values is to follow the method described in 3 above. For example, the ```GENRE.m``` 
    script can be modified to call either the ```GENRE_GPU_single_precision``` MEX-file or the ```GENRE_GPU_double_precision``` MEX-file in a 
    for loop. In each iteration of the for loop, the ```lambda_values_h``` vector can be modified to have new values and then be supplied to
-   the MEX-files.
+   the MEX-files. Although this method means that there will be less model fits passed to the GPU at once, one benefit is that it will
+   require less memory because multiple copies of the model will not be required.
    
 5. When possible, ```GENRE``` uses shared memory on the GPU when performing the model fits. This memory has lower latency than global memory
    on the GPU, so it can potentially improve performance. Whether shared memory is utilized or not is determined in the ```GENRE.m``` 
