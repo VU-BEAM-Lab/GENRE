@@ -8,8 +8,9 @@
 5. [Running the Code](#Running-the-Code)
 6. [Tutorial](#Tutorial)
 7. [Additional Notes](#Additional-Notes)
-8. [License](#License)
-9. [Acknowledgements](#Acknowledgements)
+8. [Comparing with Other Packages](#Comparing-with-Other-Packages)
+9. [License](#License)
+10. [Acknowledgements](#Acknowledgements)
 
 ## Overview
 ```GENRE``` (GPU Elastic-Net REgression) is a MATLAB package that allows for many instances of linear regression with elastic-net regularization to be performed in parallel on a GPU. The specific objective function that is minimized is shown below.
@@ -217,6 +218,9 @@ Note that since we included an intercept term in every model, the first model co
    script can be modified to call either the ```GENRE_GPU_single_precision``` MEX-file or the ```GENRE_GPU_double_precision``` MEX-file in a 
    for loop. In each iteration of the for loop, the ```lambda_values_h``` vector can be modified to have new values and then be supplied to
    the MEX-files.
+   
+## Comparing with Other Packages
+If you want to compare GENRE to other packages that perform linear regression with elastic-net regularization, you should check to see what convergence criteria these packages use in order to ensure that convergence for GENRE and the package being compared to it is being reached at similar points during optimization. For example, if comparing to ```glmnet```, ```GENRE``` uses the same convergene criteria. Typically, the tolerance criteria is expected to be reached before the maximum number of iterations, so make sure to set the ```thresh``` parameter of each model fit in glmnet to be the same as the corresponding value in the ```tolerance_values_h``` vector of ```GENRE```.
    
 ## License
 Copyright 2020 Christopher Khan 
