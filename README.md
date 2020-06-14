@@ -105,7 +105,7 @@ for ii = 1:num_fits
     X = randn(num_observations, num_predictors);
     
     % Add an intercept term to the model (for this tutorial, we will include an intercept term to all of the models, but the commented 
-    line below also allows the option to randomly determine whether to include an intercept term or not)
+    % line below also allows the option to randomly determine whether to include an intercept term or not)
     intercept_flag = 1;
     
     % Randomly determine whether to add an intercept term or not
