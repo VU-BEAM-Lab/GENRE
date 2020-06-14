@@ -219,7 +219,7 @@ Note that since we included an intercept term in every model, the first model co
    for loop. In each iteration of the for loop, the ```lambda_values_h``` vector can be modified to have new values and then be supplied to
    the MEX-files.
    
-5. When possible, ```GENRE``` uses shared memory on the GPU when performing the model fits. This memory has lower latency than global memory     
+5. When possible, ```GENRE``` uses shared memory on the GPU when performing the model fits. This memory has lower latency than global memory
    on the GPU, so it can potentially improve performance. Whether shared memory is utilized or not is determined in the ```GENRE.m```    
    script, but it will usually be used if for the model matrix with the largest number of observations, the number of observations is less  
    than or equal to 250 observations for single precision and less than or equal to 125 observations for double precision. Note that if this 
