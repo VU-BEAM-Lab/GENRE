@@ -219,7 +219,8 @@ Note that since we included an intercept term in every model, the first model co
    the MEX-files.
    
 ## License
-Copyright 2020 Christopher Khan                                                                                                   
+Copyright 2020 Christopher Khan 
+
 ```GENRE``` is free software made available under the Apache License, Version 2.0. For details, refer to the [LICENSE](LICENSE) file.
 
 ## Contributors
