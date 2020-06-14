@@ -55,7 +55,7 @@ As previously stated, ```GENRE``` allows for many models to run in parallel on t
 ## User-Defined Parameters
 ```GENRE``` consists of several files. The main program is the ```GENRE.m``` script, and it is the only file that the user will need to modify. The inputs to this script are described in detail below.
 
-```precision```: Specifies which numerical precision to use for the model fit calculations on the GPU. The two options are either ```precision = 'single'``` or ```precision = 'double'```. Using double precision instead of single precision on GPUs typically results in a performance penalty due to there being fewer FP64 units than FP32 units and double precision requiring more memory resources as a result of one value of type double being 64 bits versus one value of type single being 32 bits. However, using single precision has the trade-off of reduced numerical accuracy.
+```precision```: Specifies which numerical precision to use for the model fit calculations on the GPU. The two options are either ```precision = 'single'``` or ```precision = 'double'```. Using double precision instead of single precision on GPUs typically results in a performance penalty due to there being fewer FP64 units than FP32 units and double precision requiring more memory resources as a result of one value of type double being 64 bits versus one value of type single being 32 bits. However, using single precision has the trade-off of reduced numerical precision.
 
 ```num_fits```: The number of model fits to perform.
 
@@ -137,7 +137,7 @@ Once this script is written, run it within MATLAB. This will generate the data f
 % Specify whether to use single precision or double precision (there is
 % typically a performance penalty when using double precision instead of
 % single precision on GPUs, but using single precision has the trade-off of
-% reduced numerical accuracy)
+% reduced numerical precision)
 precision = 'single';
 
 % Specify the number of model fits
