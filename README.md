@@ -154,19 +154,23 @@ save_path = 'enter the path to the directory that you want the results to be sav
 % Specify the name of the output file
 output_filename = 'model_coefficients.mat';
 
-% Define or load in the alpha values that are used for the model fits (for this tutorial, we will randomly generate an alpha value for each
-% of the model fits)
+% Define or load in the alpha values that are used for the model fits (for
+% this tutorial, we will randomly generate an alpha value for each of the
+% model fits)
 alpha_values_h = rand(num_fits, 1); % rand randomly generates numbers between 0 and 1
 
-% Define or load the in the lambda values that are used for the model fits (for this tutorial, we will use a lambda value of 0.001 for each
-% of the model fits)
+% Define or load in the lambda values that are used for the model fits (for 
+% this tutorial, we will use a lambda value of 0.001 for each of the model
+% fits)
 lambda_values_h = repmat(0.001, [num_fits, 1]);
 
-% Define the tolerance values that are used for the model fits (for this tutorial, we will use a tolerance value of 1E-4 for each of the 
-% model fits)
+% Define the tolerance values that are used for the model fits (for this 
+% tutorial, we will use a tolerance value of 1E-4 for each of the model 
+% fits)
 tolerance_values_h = repmat(1E-4, [num_fits, 1]);
 
-% Define the maximum iterations values that are used for the model fits (for this tutorial, we will use 100,000 as the maximum number of
+% Define the maximum iterations values that are used for the model fits 
+% (for this tutorial, we will use 100,000 as the maximum number of 
 % iterations for each of the model fits)
 max_iterations_values_h = repmat(100000, [num_fits, 1]);
 
