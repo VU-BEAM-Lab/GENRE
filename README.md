@@ -86,32 +86,39 @@ After the data is organized, the ```GPU_memory_estimator.m``` script will be cal
 In this tutorial, we will first write a script to generate model data in order to familiarize ourselves with the model data format that is required for ```GENRE```. We will then use ```GENRE``` to process the data. To begin, create a new script within MATLAB called ```data_creator.m```, and type or copy and paste the following lines of code within the file. Note that the ```save_path``` variable should be defined using your own specified path.
 
 ```Matlab
-% This script generates toy datasets for illustrating the model data format for GENRE
+% This script generates toy datasets for illustrating the model data format 
+% for GENRE
 
-% Define the number of model fits to generate data for (this can be decreased if you do not have enough RAM or GPU VRAM for this many model 
+% Define the number of model fits to generate data for (this can be 
+% decreased if you do not have enough RAM or GPU VRAM for this many model 
 % fits)
 num_fits = 5000;
 
-% Define the path to the directory in which the model data files will be saved
+% Define the path to the directory in which the model data files will be 
+% saved
 save_path = 'enter path here';
 
 % Generate and save the model data for each model fit
 for ii = 1:num_fits
-    % Randomly generate the number of observations and predictors for the model fit 
+    % Randomly generate the number of observations and predictors for the 
+    % model fit 
     num_observations = randi([100 200], 1);
     num_predictors = randi([400 500], 1);
     
     % Create the model matrix for the model fit
     X = randn(num_observations, num_predictors);
     
-    % Add an intercept term to the model (for this tutorial, we will include an intercept term to all of the models, but the commented 
-    % line below also allows the option to randomly determine whether to include an intercept term or not)
+    % Add an intercept term to the model (for this tutorial, we will 
+    % include an intercept term to all of the models, but the commented 
+    % line below also allows the option to randomly determine whether to 
+    % include an intercept term or not)
     intercept_flag = 1;
     
     % Randomly determine whether to add an intercept term or not
     % intercept_flag = randi([0 1], 1);
     
-    % Add a column vector of ones to the beginning of the model matrix if an intercept term is supposed to be included
+    % Add a column vector of ones to the beginning of the model matrix if 
+    % an intercept term is supposed to be included
     if intercept_flag == 1
         X = [ones(num_observations, 1), X];
         num_predictors = num_predictors + 1;
