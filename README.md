@@ -170,8 +170,14 @@ tolerance_values_h = repmat(1E-4, [num_fits, 1]);
 % iterations for each of the model fits)
 max_iterations_values_h = repmat(100000, [num_fits, 1]);
 
-% Specify the flag that determines which transformation option to use for all of the model fits (note that the same transformation flag has
-% to be used for all of the model fits)
+% Specify the flag that determines which transformation option to use for 
+% all of the model fits (1 = standardize the predictors on the GPU and 
+% return the unstandardized model coefficients, 2 = normalize the
+% predictors on the GPU and return the unnormalized model coefficients,
+% 3 = the predictors are already standardized and return the standardized
+% model coefficients, and 4 = the predictors are already normalized and
+% return the normalized model coefficients). Note that the same 
+% transformation flag has to be used for all of the model fits.
 transformation_flag = 1;
 ```
 
