@@ -145,7 +145,12 @@ Once this script is written, run it within MATLAB. This will generate the data f
 % Specify whether to use single precision or double precision (there is
 % typically a performance penalty when using double precision instead of
 % single precision on GPUs, but using single precision has the trade-off of
-% reduced numerical precision)
+% reduced numerical precision). Depending on factors such as the 
+% conditioning of the model matrices, this reduced precision can be 
+% significant and lead to incorrect results. Therefore, if you select 
+% single precision, then you should ensure that this precision is 
+% sufficient for your application. If you are uncertain, then it is best to 
+% use double precision.
 precision = 'single';
 
 % Specify the number of model fits
