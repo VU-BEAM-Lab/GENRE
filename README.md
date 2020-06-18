@@ -149,7 +149,7 @@ Once this script is written, run it within MATLAB. This will generate the data f
 % conditioning of the model matrices, this reduced precision can lead to 
 % significantly different results. Therefore, if you select single
 % precision, then you should ensure that this precision is sufficient
-% for your application. If you are uncertain, then it is best to use
+% for your application. If you are uncertain, then it is recommended to use
 % double precision.
 precision = 'single';
 
