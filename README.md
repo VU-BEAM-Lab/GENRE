@@ -148,9 +148,9 @@ Once this script is written, run it within MATLAB. This will generate the data f
 % reduced numerical precision). Depending on factors such as the 
 % conditioning of the model matrices, this reduced precision can lead to 
 % significantly different results. Therefore, if you select single
-% single precision, then you should ensure that this precision is 
-% sufficient for your application. If you are uncertain, then it is best to 
-% use double precision.
+% precision, then you should ensure that this precision is sufficient
+% for your application. If you are uncertain, then it is best to use
+% double precision.
 precision = 'single';
 
 % Specify the number of model fits
