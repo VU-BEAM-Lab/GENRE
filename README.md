@@ -86,6 +86,22 @@ After the data is organized, the ```GPU_memory_estimator.m``` script will be cal
 In this tutorial, we will first write a script to generate model data in order to familiarize ourselves with the model data format that is required for ```GENRE```. We will then use ```GENRE``` to process the data. To begin, create a new script within MATLAB called ```data_creator.m```, and type or copy and paste the following lines of code within the file. Note that the ```save_path``` variable should be defined using your own specified path.
 
 ```Matlab
+% Copyright 2020 Christopher Khan
+
+% Licensed under the Apache License, Version 2.0 (the "License");
+% you may not use this file except in compliance with the License.
+% You may obtain a copy of the license at
+
+%     http://www.apache.org/licenses/LICENSE-2.0
+
+% Unless required by applicable law or agreed to in writing, software
+% distributed under the License is distributed on an "AS IS" BASIS,
+% WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+% See the License for the specific language governing permissions and 
+% limitations under the License.
+
+
+% Description of data_creator.m:
 % This script generates toy datasets for illustrating the model data format 
 % for GENRE
 
