@@ -285,7 +285,7 @@ if (transformation_flag == 1) {
    predictor_coefficient_unnormalization<<<PREDICTOR_COEFFICIENT_UNNORMALIZATION_GRID_SIZE, PREDICTOR_COEFFICIENT_UNNORMALIZATION_BLOCK_SIZE>>>(B_d, B_thread_stride_d, model_fit_flag_d, X_matrix_d, X_matrix_thread_stride_d, scaling_factors_d, num_predictors_d, intercept_flag_d, num_threads_per_block, num_blocks, num_threads_last_block);
 }
 
-// Declare the pointer to the MEX-file outputs
+// Declare the pointer to the MEX-file output
 float * B_h;
 
 // Assign the pointer to the output array
