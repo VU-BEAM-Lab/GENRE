@@ -56,7 +56,7 @@ static double * max_iterations_values_d;        // Stores the maximum number of 
 static double * intercept_flag_d;               // Stores the flag that determines whether each model includes a column of ones corresponding to an intercept term or not
 static double * scaling_factors_d;              // Stores the normalization or standardization factor for each predictor in each model matrix
 static double * mean_X_matrix_d;                // Stores the mean of each predictor in each model matrix
-static double * model_fit_flag_d;               // Stores the flag that determines whether to perform a model fit or not 
+static double * model_fit_flag_d;               // Stores the flag that determines whether to perform a model fit or not for each model
     
 
 
