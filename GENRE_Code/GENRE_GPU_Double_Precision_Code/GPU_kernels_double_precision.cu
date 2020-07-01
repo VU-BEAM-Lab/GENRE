@@ -318,9 +318,9 @@ if (block_thread_ind < num_threads_per_block_2) {
       // Declare and initialize the variable that counts how many iterations of cyclic coordinate descent have been performed
       int iteration_count = 0;
 
-      // Perform cyclic coordinate descent until either the maximum number of iterations is reached or the maximum predictor coefficient change becomes less than the tolerance
+      // Perform cyclic coordinate descent until either the maximum number of iterations is reached or the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values becomes less than the tolerance           
       while (global_max_change >= tolerance && iteration_count < max_iterations) {
-            // Declare and initialize the variable that stores the maximum predictor coefficient change for one iteration
+            // Declare and initialize the variable that stores the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values for one iteration 
             double max_change = 0.0;
 
             // Declare and initialize the variable that stores the change between the current predictor coefficient value and its previous value
