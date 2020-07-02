@@ -312,7 +312,7 @@ if (block_thread_ind < num_threads_per_block_2) {
       // Obtain the flag that determines whether the first predictor column is a column of ones for the intercept term or not
       int intercept_flag = (int)intercept_flag_d[fit_ind];
 
-      // Declare and initialize the variable that stores the maximum predictor coefficient change
+      // Declare and initialize the variable that stores the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values for one iteration of cyclic coordinate descent
       double global_max_change = 1E12;
 
       // Declare and initialize the variable that counts how many iterations of cyclic coordinate descent have been performed
