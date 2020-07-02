@@ -324,7 +324,7 @@ if (block_thread_ind < num_threads_per_block_2) {
             // Declare and initialize the variable that stores the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values for one iteration of cyclic coordinate descent
             float max_change = 0.0f;
 
-            // Declare and initialize the variable that stores the weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values that are due to the current predictor coefficient being updated using cyclic coordinate descent
+            // Declare and initialize the variable that stores the weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values that are due to the current predictor coefficient value being updated using cyclic coordinate descent
             float change = 0.0f;
          
             // Cycle through all of the predictors for one iteration of cyclic coordinate descent
