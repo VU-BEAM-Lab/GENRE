@@ -373,7 +373,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                 // Divide the computed correlation by the total number of observations in y (also the total number of observations in one predictor column)
                 p_j = (1.0f / (float)num_observations) * p_j;
 
-                // Apply the soft-thresholding function that is associated with the L1 regularization component of elastic-net regularization 
+                // Apply the soft-thresholding function that is associated with the L1-regularization component of elastic-net regularization 
                 float gamma = lambda * alpha;
                 if (p_j > 0.0f && gamma < fabsf(p_j)) {
                    B_j = p_j - gamma;
@@ -398,7 +398,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                    // Use the computed correlation value as the updated predictor coefficient 
                    B_j = p_j;
                 } else {
-                   // Calculate the updated predictor coefficient value by applying the component of elastic-net regularization that is associated with L2 regularization 
+                   // Calculate the updated predictor coefficient value by applying the component of elastic-net regularization that is associated with L2-regularization 
                    B_j = B_j / (mean_squared_predictor_value + (lambda * (1.0f - alpha)));
                 }
 
@@ -573,7 +573,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                 // Divide the computed correlation by the total number of observations in y (also the total number of observations in one predictor column)
                 p_j = (1.0f / (float)num_observations) * p_j;
 
-                // Apply the soft-thresholding function that is associated with the L1 regularization component of elastic-net regularization 
+                // Apply the soft-thresholding function that is associated with the L1-regularization component of elastic-net regularization 
                 float gamma = lambda * alpha;
                 if (p_j > 0.0f && gamma < fabsf(p_j)) {
                    B_j = p_j - gamma;
@@ -598,7 +598,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                    // Use the computed correlation value as the updated predictor coefficient
                    B_j = p_j;
                 } else {
-                   // Calculate the updated predictor coefficient value by applying the component of elastic-net regularization that is associated with L2 regularization 
+                   // Calculate the updated predictor coefficient value by applying the component of elastic-net regularization that is associated with L2-regularization 
                    B_j = B_j / (mean_squared_predictor_value + (lambda * (1.0f - alpha)));
                 }
 
