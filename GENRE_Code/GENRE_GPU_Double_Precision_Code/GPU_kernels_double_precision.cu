@@ -257,7 +257,7 @@ if (block_thread_ind < num_threads_per_block_2) {
 
 
 
-// Define the GPU kernel that performs least squares regression with elastic-net regularization using the cyclic coordinate descent optimization algorithm in order to fit the model matrices to the data
+// Define the GPU kernel that performs least-squares regression with elastic-net regularization using the cyclic coordinate descent optimization algorithm in order to fit the model matrices to the data
 __global__ void model_fit(double * B_d, double * B_thread_stride_d, double * model_fit_flag_d, double * X_matrix_d, double * X_matrix_thread_stride_d, double * observation_thread_stride_d, double * residual_y_d, double * y_std_d, double * standardized_lambda_values_d, double * num_observations_d, double * num_predictors_d, double * alpha_values_d, double * tolerance_values_d, double * max_iterations_values_d, double * intercept_flag_d, int transformation_flag, int num_threads_per_block, int num_blocks, int num_threads_last_block) {
 
 // Obtain the index of the block
@@ -312,18 +312,18 @@ if (block_thread_ind < num_threads_per_block_2) {
       // Obtain the flag that determines whether the first predictor column is a column of ones for the intercept term or not
       int intercept_flag = (int)intercept_flag_d[fit_ind];
 
-      // Declare and initialize the variable that stores the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values for one iteration of cyclic coordinate descent
+      // Declare and initialize the variable that stores the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes in the fitted values for one iteration of cyclic coordinate descent
       double global_max_change = 1E12;
 
       // Declare and initialize the variable that counts how many iterations of cyclic coordinate descent have been performed
       int iteration_count = 0;
 
-      // Perform cyclic coordinate descent until either the maximum number of iterations is reached or the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values becomes less than the tolerance           
+      // Perform cyclic coordinate descent until either the maximum number of iterations is reached or the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes in the fitted values becomes less than the tolerance           
       while (global_max_change >= tolerance && iteration_count < max_iterations) {
-            // Declare and initialize the variable that stores the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values for one iteration of cyclic coordinate descent
+            // Declare and initialize the variable that stores the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes in the fitted values for one iteration of cyclic coordinate descent
             double max_change = 0.0;
 
-            // Declare and initialize the variable that stores the weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values that are due to the current predictor coefficient value being updated using cyclic coordinate descent
+            // Declare and initialize the variable that stores the weighted (observation weights are all 1 in this case) sum of squares of the changes in the fitted values that are due to the current predictor coefficient value being updated using cyclic coordinate descent
             double change = 0.0;
          
             // Cycle through all of the predictors for one iteration of cyclic coordinate descent
@@ -372,7 +372,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                 // Divide the computed correlation by the total number of observations in y (also the total number of observations in one predictor column)
                 p_j = ((double)1.0 / (double)num_observations) * p_j;
 
-                // Apply the soft-thresholding function that is associated with the L1 regularization component of elastic-net regularization 
+                // Apply the soft-thresholding function that is associated with the L1-regularization component of elastic-net regularization 
                 double gamma = lambda * alpha;
                 if (p_j > (double)0.0 && gamma < fabs(p_j)) {
                    B_j = p_j - gamma;
@@ -397,7 +397,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                    // Use the computed correlation value as the updated predictor coefficient  
                    B_j = p_j;
                 } else {
-                   // Calculate the updated predictor coefficient value by applying the component of elastic-net regularization that is associated with L2 regularization 
+                   // Calculate the updated predictor coefficient value by applying the component of elastic-net regularization that is associated with L2-regularization 
                    B_j = B_j / (mean_squared_predictor_value + (lambda * ((double)1.0 - alpha)));
                 }
 
@@ -405,7 +405,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                 B_d[predictor_thread_stride + j] = B_j;
 
                 // Update the residual values to include the contribution of the current predictor using the updated predictor coefficient value 
-                // If the updated predictor coefficient value is 0, then it's contribution to the residual values is zero
+                // If the updated predictor coefficient value is 0, then its contribution to the residual values is zero
                 if (B_j != (double)0.0) {
                    for (int observation_row = 0; observation_row < num_observations; observation_row++) {
                        // Store the updated residual back into the residual_y_d array
@@ -413,7 +413,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                    }
                 }
       
-                // Compute the weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values (this is used for the tolerance convergence criterion)
+                // Compute the weighted (observation weights are all 1 in this case) sum of squares of the changes in the fitted values (this is used for the tolerance convergence criterion)
                 change = (previous_B_j - B_j) * (previous_B_j - B_j);
                 if (transformation_flag == 2 || transformation_flag == 4) {
                     if (intercept_flag == 1 && j > 0) {
@@ -448,7 +448,7 @@ if (block_thread_ind < num_threads_per_block_2) {
 
 
 
-// Define the GPU kernel that performs least squares regression with elastic-net regularization using the cyclic coordinate descent optimization algorithm in order to fit the model matrices to the data
+// Define the GPU kernel that performs least-squares regression with elastic-net regularization using the cyclic coordinate descent optimization algorithm in order to fit the model matrices to the data
 __global__ void model_fit_shared_memory(double * B_d, double * B_thread_stride_d, double * model_fit_flag_d, double * X_matrix_d, double * X_matrix_thread_stride_d, double * observation_thread_stride_d, double * residual_y_d, double * y_std_d, double * standardized_lambda_values_d, double * num_observations_d, double * num_predictors_d, double * alpha_values_d, double * tolerance_values_d, double * max_iterations_values_d, double * intercept_flag_d, int transformation_flag, int num_threads_per_block, int num_blocks, int num_threads_last_block) {
 
 // Define the shared memory array that stores the residual values of the model fits within one block (the amount of bytes is declared in the GPU kernel call)
@@ -506,7 +506,7 @@ if (block_thread_ind < num_threads_per_block_2) {
       // Obtain the flag that determines whether the first predictor column is a column of ones for the intercept term or not
       int intercept_flag = (int)intercept_flag_d[fit_ind];
 
-      // Declare and initialize the variable that stores the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values for one iteration of cyclic coordinate descent
+      // Declare and initialize the variable that stores the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes in the fitted values for one iteration of cyclic coordinate descent
       double global_max_change = 1E12;
 
       // Declare and initialize the variable that counts how many iterations of cyclic coordinate descent have been performed
@@ -518,12 +518,12 @@ if (block_thread_ind < num_threads_per_block_2) {
           sdata[store_ind] = residual_y_d[observation_thread_stride + observation_row];
       }
 
-      // Perform cyclic coordinate descent until either the maximum number of iterations is reached or the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values becomes less than the tolerance    
+      // Perform cyclic coordinate descent until either the maximum number of iterations is reached or the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes in the fitted values becomes less than the tolerance    
       while (global_max_change >= tolerance && iteration_count < max_iterations) {
-            // Declare and initialize the variable that stores the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values for one iteration of cyclic coordinate descent
+            // Declare and initialize the variable that stores the maximum weighted (observation weights are all 1 in this case) sum of squares of the changes in the fitted values for one iteration of cyclic coordinate descent
             double max_change = 0.0;
 
-            // Declare and initialize the variable that stores the weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values that are due to the current predictor coefficient value being updated using cyclic coordinate descent
+            // Declare and initialize the variable that stores the weighted (observation weights are all 1 in this case) sum of squares of the changes in the fitted values that are due to the current predictor coefficient value being updated using cyclic coordinate descent
             double change = 0.0;
          
             // Cycle through all of the predictors for one iteration of cyclic coordinate descent
@@ -572,7 +572,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                 // Divide the computed correlation by the total number of observations in y (also the total number of observations in one predictor column)
                 p_j = ((double)1.0 / (double)num_observations) * p_j;
 
-                // Apply the soft-thresholding function that is associated with the L1 regularization component of elastic-net regularization 
+                // Apply the soft-thresholding function that is associated with the L1-regularization component of elastic-net regularization 
                 double gamma = lambda * alpha;
                 if (p_j > (double)0.0 && gamma < fabs(p_j)) {
                    B_j = p_j - gamma;
@@ -597,7 +597,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                    // Use the computed correlation value as the updated predictor coefficient 
                    B_j = p_j;
                 } else {
-                   // Calculate the updated predictor coefficient value by applying the component of elastic-net regularization that is associated with L2 regularization 
+                   // Calculate the updated predictor coefficient value by applying the component of elastic-net regularization that is associated with L2-regularization 
                    B_j = B_j / (mean_squared_predictor_value + (lambda * ((double)1.0 - alpha)));
                 }
 
@@ -605,7 +605,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                 B_d[predictor_thread_stride + j] = B_j;
 
                 // Update the residual values to include the contribution of the current predictor using the updated predictor coefficient value 
-                // If the updated predictor coefficient value is 0, then it's contribution to the residual values is zero
+                // If the updated predictor coefficient value is 0, then its contribution to the residual values is zero
                 if (B_j != (double)0.0) {
                    for (int observation_row = 0; observation_row < num_observations; observation_row++) {
                        // Store the updated residual back into the shared memory array
@@ -613,7 +613,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                    }
                 }
       
-                // Compute the weighted (observation weights are all 1 in this case) sum of squares of the changes of the fitted values (this is used for the tolerance convergence criterion)
+                // Compute the weighted (observation weights are all 1 in this case) sum of squares of the changes in the fitted values (this is used for the tolerance convergence criterion)
                 change = (previous_B_j - B_j) * (previous_B_j - B_j);
                 if (transformation_flag == 2 || transformation_flag == 4) {
                     if (intercept_flag == 1 && j > 0) {
