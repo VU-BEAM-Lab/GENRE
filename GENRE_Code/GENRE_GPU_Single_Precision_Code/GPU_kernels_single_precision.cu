@@ -399,6 +399,7 @@ if (block_thread_ind < num_threads_per_block_2) {
                    B_j = p_j;
                 } else {
                    // Calculate the updated predictor coefficient value by applying the component of elastic-net regularization that is associated with L2-regularization 
+                   // The mean_squared_predictor_value term comes from the derivation of the coordinate descent update for a predictor coefficient     
                    B_j = B_j / (mean_squared_predictor_value + (lambda * (1.0f - alpha)));
                 }
 
@@ -598,7 +599,8 @@ if (block_thread_ind < num_threads_per_block_2) {
                    // Use the computed correlation value as the updated predictor coefficient
                    B_j = p_j;
                 } else {
-                   // Calculate the updated predictor coefficient value by applying the component of elastic-net regularization that is associated with L2-regularization 
+                   // Calculate the updated predictor coefficient value by applying the component of elastic-net regularization that is associated with L2-regularization
+                   // The mean_squared_predictor_value term comes from the derivation of the coordinate descent update for a predictor coefficient         
                    B_j = B_j / (mean_squared_predictor_value + (lambda * (1.0f - alpha)));
                 }
 
