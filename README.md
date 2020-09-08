@@ -275,7 +275,7 @@ Copyright 2020 Christopher Khan
 ```GENRE``` is free software made available under the Apache License, Version 2.0. For details, refer to the [LICENSE](LICENSE) file. 
 
 ## Contact Information and Contributing
-If you have questions, suggestions, or bugs to report, please use the Issues section of this repository or contact Christopher Khan (christopher.m.khan@vanderbilt.edu). For contributing to this repository, please fork the repository and submit your proposed contributions in the form of a pull request.
+If you have questions, suggestions, or bugs to report, please use the Issues section of this repository or contact Christopher Khan (christopher.m.khan@vanderbilt.edu). For contributing to this repository, please fork the repository and submit your proposed contributions in the form of a pull request. When submitting a pull request, please provide a detailed description of the proposed contributions. The pull request will then be reviewed by the repository manager (Christopher Khan). If approved, the pull request will be merged with the master branch. 
 
 ## Acknowledgements
 This work was supported by NIH grants R01EB020040 and S10OD016216-01 and NAVSEA grant N0002419C4302.
