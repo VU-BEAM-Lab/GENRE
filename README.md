@@ -10,7 +10,7 @@
 7. [Additional Notes](#Additional-Notes)
 8. [Comparing with Other Packages](#Comparing-with-Other-Packages)
 9. [License](#License)
-11. [Contact Information/Contributing]
+11. [Contact Information and Contributing](#Contact-Information-and-Contributing)
 10. [Acknowledgements](#Acknowledgements)
 
 ## Overview
@@ -274,7 +274,7 @@ Copyright 2020 Christopher Khan
 
 ```GENRE``` is free software made available under the Apache License, Version 2.0. For details, refer to the [LICENSE](LICENSE) file. 
 
-## Contact Information/Contributing
+## Contact Information and Contributing
 If you have questions, suggestions, or bugs to report, please use the Issues section of this repository or contact Christopher Khan (christopher.m.khan@vanderbilt.edu). For contributing to this repository, please fork the repository and submit your proposed contributions in the form of a pull request.
 
 ## Acknowledgements
