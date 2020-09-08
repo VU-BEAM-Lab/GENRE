@@ -23,7 +23,7 @@ bibliography: paper.bib
 # Summary
 GENRE (GPU Elastic-Net REgression) is a package that allows for many instances of linear
 regression with elastic-net regularization to be processed in parallel on a GPU by using the C programming 
-language and NVIDIA's (NVIDIA Corporation, Santa Clara, CA) Compute Unified Device Architecture (CUDA) parallel
+language and NVIDIA's (NVIDIA Corporation, Santa Clara, CA, USA) Compute Unified Device Architecture (CUDA) parallel
 programming framework. Linear regression with elastic-net regularization [@zou_hastie_2005] is a widely 
 utilized tool when performing model-based analyses. The basis of this method is that it allows for a 
 combination of L1-regularization and L2-regularization to be applied to a given regression problem. 
@@ -47,7 +47,7 @@ performing thousands of these fits will still require significant computational 
 in a serial fashion on a CPU. However, by using GENRE, massively parallel processing can be performed in order to 
 achieve significant speedup. This is due to the fact that modern GPUs consist of thousands of computational cores
 that can be utilized. Moreover, although the processing in GENRE is performed using the C programming language and 
-CUDA, a MEX-interface is included to allow for this code to be called within the MATLAB (The MathWorks, Inc., Natick, MA) 
+CUDA, a MEX-interface is included to allow for this code to be called within the MATLAB (The MathWorks, Inc., Natick, MA, USA) 
 programming language for convenience. This also means that with modification, the MEX-interface can be replaced with 
 another interface if it is desired to call the C/CUDA code in another language, or the C/CUDA code can be utilized 
 without an interface.
