@@ -10,6 +10,7 @@
 7. [Additional Notes](#Additional-Notes)
 8. [Comparing with Other Packages](#Comparing-with-Other-Packages)
 9. [License](#License)
+11. [Contact Information/Contributing]
 10. [Acknowledgements](#Acknowledgements)
 
 ## Overview
@@ -269,9 +270,12 @@ Note that since we included an intercept term in every model, the first model co
 If you want to compare ```GENRE``` to other packages that perform linear regression with elastic-net regularization, you should check to see what convergence criteria these packages use in order to ensure that convergence for ```GENRE``` and the package being compared to it is being reached at similar points during optimization. For example, ```GENRE``` was developed to produce similar results to ```glmnet```, and both packages use the same tolerance convergence criterion. Therefore, if you are comparing these two packages, make sure to set the ```thresh``` parameter of each model fit in ```glmnet``` to be the same as the corresponding value in the ```tolerance_values_h``` vector of ```GENRE```. The code for the MATLAB port of ```glmnet``` is provided at http://web.stanford.edu/~hastie/glmnet_matlab/index.html. The numerical precision that is being used by the package should also match whatever option is selected for the ```precision``` parameter in ```GENRE```. In addition, when comparing with any package, make sure to use similar predictor transformations in regards to normalization or standardization. Adding on, for timing purposes, note that the ```GENRE.m``` script also includes loading in and organizing the data for all of the model fits because the ```data_organizer.m``` script is called within this script. It also includes saving the parameters and the computed model coefficients for the model fits. Moreover, as discussed in the [Additional Notes](#Additional-Notes) section, there is additional overhead when calling either of the MEX-files for the first time after ```clear mex``` has been called. As a result, these factors should be noted when comparing the time that it takes for ```GENRE``` to run to the time that it takes for another package to run. In terms of speedup, the users who will most likely experience the greatest speedup using ```GENRE``` when compared to other packages are those that need to perform many small fits and analyses such as trying out many different combinations of ![lambda](https://latex.codecogs.com/svg.latex?%5Clambda) and ![alpha](https://latex.codecogs.com/svg.latex?%5Calpha).
    
 ## License
-Copyright 2020 Christopher Khan (christopher.m.khan@vanderbilt.edu)
+Copyright 2020 Christopher Khan
 
 ```GENRE``` is free software made available under the Apache License, Version 2.0. For details, refer to the [LICENSE](LICENSE) file. 
+
+## Contact Information/Contributing
+If you have questions, suggestions, or bugs to report, please use the Issues section of this repository or contact Christopher Khan (christopher.m.khan@vanderbilt.edu). For contributing to this repository, please fork the repository and submit your proposed contributions in the form of a pull request.
 
 ## Acknowledgements
 This work was supported by NIH grants R01EB020040 and S10OD016216-01 and NAVSEA grant N0002419C4302.
