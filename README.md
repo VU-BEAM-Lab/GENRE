@@ -31,8 +31,10 @@ The description provided above describes the process of performing one model fit
 ## Setup
 ### Requirements
 * A computer with Windows or Linux OS (code was tested on systems using these two operating systems, but it could potentially run on macOS as well)
-* CUDA-capable NVIDIA GPU
+* CUDA-capable NVIDIA GPU (code was tested using an NVIDIA GeForce GTX 1080 Ti GPU, an NVIDIA GeForce GTX 2080 Ti GPU, and an NVIDIA GeForce GTX 1660 Ti laptop GPU)
+  * The speedup that is obtained using ```GENRE``` can vary depending on the GPU that is used.
 * MATLAB
+  * Note that a MEX-interface is only being used to allow for the C/CUDA code to be called within MATLAB for convenience. With modification, a different interface can be utilized to allow for the C/CUDA code to be called from within another programming language, or the C/CUDA code can be utilized without an interface.
 * Parallel Computing Toolbox for MATLAB in order to allow for the compilation of MEX-files containing CUDA code
 * C/C++ compiler that is compatible with the release of MATLAB that is being used in order to allow for the compilation of MEX-files containing C/C++ code (compiler compatibility can be found at https://www.mathworks.com/support/requirements/supported-compilers.html) 
   * For Windows, the free community edition of Microsoft Visual Studio 2017 was used as the C/C++ compiler. To download this older version, go to https://visualstudio.microsoft.com/vs/older-downloads/ and create a free Dev Essentials program account with Microsoft. When installing Microsoft Visual Studio 2017, make sure to also check the box for the VC++ 2015 toolset (the 2015 will most likely be followed by a version number). For Linux, the GNU Compiler Collection (GCC) was used as the C/C++ compiler. 
