@@ -42,7 +42,7 @@ The description provided above describes the process of performing one model fit
   * Once the compatibility is determined, go to https://developer.nvidia.com/cuda-toolkit-archive and install the particular CUDA toolkit version. Note that the installation process for the toolkit will also allow for the option to install a new graphics driver. If you do not desire to install a new driver, then you must ensure that your current driver supports the toolkit version that is being installed. For driver and toolkit compatability, refer to page 4 of https://docs.nvidia.com/pdf/CUDA_Compatibility.pdf.
 
 ### Code Compilation for Windows OS
-Go to the MATLAB directory that contains the repository folders and add them to your MATLAB path. Following this, go to the ```GENRE_Code``` folder. For Windows OS, type the following commands into the MATLAB command prompt.
+Go to the MATLAB directory that contains the repository folders and add them to your MATLAB path. Following this, go to the ```GENRE_Code``` folder. Type the following commands into the MATLAB command prompt.
 
 ```Matlab
 cd GENRE_GPU_Single_Precision_Code
@@ -54,7 +54,7 @@ mexcuda GENRE_GPU_double_precision.cu
 The ```-v``` flag can also be included at the end of each mexcuda command to display compilation details. If the compilation process is successful, then it will display a success message for each compilation in the command prompt. In addition, a compiled MEX-file will appear in each folder. The compilation process is important, and it is recommended to recompile any time a different release of MATLAB is utilized.
 
 ### Code Compilation for Linux OS
-Go to the MATLAB directory that contains the repository folders and add them to your MATLAB path. Following this, go to the ```GENRE_Code``` folder. For Windows OS, type the following commands into the MATLAB command prompt. 
+Go to the MATLAB directory that contains the repository folders and add them to your MATLAB path. Following this, go to the ```GENRE_Code``` folder. Type the following commands into the MATLAB command prompt. 
 
 ```Matlab
 cd GENRE_GPU_Single_Precision_Code
