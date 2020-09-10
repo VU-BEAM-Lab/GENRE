@@ -29,7 +29,7 @@ In this equation, ![N](https://latex.codecogs.com/svg.latex?N) represents the nu
 The description provided above describes the process of performing one model fit, but ```GENRE``` allows for many of these fits to be performed in parallel on the GPU by using the CUDA parallel programming framework. GPUs have many computational cores, which allows for a large number of threads to execute operations in parallel. In the case of ```GENRE```, each GPU thread handles one model fit. For example, if 100 individual model fits need to be performed, then 100 computational threads will be required. Performing the fits in parallel on a GPU rather than in a sequential fashion on a CPU can potentially provide a significant speedup in terms of computational time (speedup varies depending on the GPU that is utilized).
 
 ## Setup
-#### Requirements
+### Requirements
 * A computer with Windows or Linux OS (code was tested on systems using these two operating systems, but it could potentially run on macOS as well)
 * CUDA-capable NVIDIA GPU (code was tested using an NVIDIA GeForce GTX 1080 Ti GPU, an NVIDIA GeForce GTX 2080 Ti GPU, and an NVIDIA GeForce GTX 1660 Ti laptop GPU)
   * The speedup that is obtained using ```GENRE``` can vary depending on the GPU that is used.
@@ -41,10 +41,10 @@ The description provided above describes the process of performing one model fit
 * CUDA toolkit that is compatible with the release of MATLAB (compatibility can be found at https://www.mathworks.com/help/parallel-computing/gpu-support-by-release.html)
   * Once the compatibility is determined, go to https://developer.nvidia.com/cuda-toolkit-archive and install the particular CUDA toolkit version. Note that the installation process for the toolkit will also allow for the option to install a new graphics driver. If you do not desire to install a new driver, then you must ensure that your current driver supports the toolkit version that is being installed. For driver and toolkit compatability, refer to page 4 of https://docs.nvidia.com/pdf/CUDA_Compatibility.pdf.
   
-#### MATLAB GPU Check
+### MATLAB GPU Check
 * Before compiling the files that contain the C/CUDA code into MEX-files, you should first check to see that MATLAB recognizes your GPU card. To do so, go to the command prompt and type ```gpuDevice```. If successful, the properties of the GPU will be displayed. If an error is returned, then possible causes will most likely be related to the graphics driver or the toolkit version that is installed.
 
-#### Code Compilation for Windows OS
+### Code Compilation for Windows OS
 * Assuming the repository is on your system, go to the MATLAB directory that contains the repository folders and add them to your MATLAB path. Following this, go to the ```GENRE_Code``` folder. Type the commands shown below into the MATLAB command prompt.
   * The ```-v``` flag can also be included at the end of each mexcuda command to display compilation details. If the compilation process is successful, then it will display a success message for each compilation in the command prompt. In addition, a compiled MEX-file will appear in each folder. The compilation process is important, and it is recommended to recompile any time a different release of MATLAB is utilized.
 
@@ -55,7 +55,7 @@ cd ..\GENRE_GPU_Double_Precision_Code
 mexcuda GENRE_GPU_double_precision.cu
 ```
 
-#### Code Compilation for Linux OS
+### Code Compilation for Linux OS
 * Assuming the repository is on your system, go to the MATLAB directory that contains the repository folders and add them to your MATLAB path. Following this, go to the ```GENRE_Code``` folder. Type the commands shown below into the MATLAB command prompt.
   * These commands are similar to the commands that are used for code compilation for Windows OS, but the path to the CUDA toolkit library must also be included. Note that mexcuda might find the CUDA toolkit library even if you do not explicitly type out its path. In addition, note that there might be differences in your path compared to the one shown above, such as in regards to the version of the CUDA toolkit that is being used. The ```-v``` flag can also be included at the end of each mexcuda command to display compilation details. If the compilation process is successful, then it will display a success message for each compilation in the command prompt. In addition, a compiled MEX-file will appear in each folder. The compilation process is important, and it is recommended to recompile any time a different release of MATLAB is utilized.
 
