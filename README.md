@@ -285,8 +285,8 @@ Note that since we included an intercept term in every model, the first model co
    the MEX-files. Although this method means that there will be less model fits passed to the GPU at once, one benefit is that it will
    require less memory because multiple copies of the model will not be required.
    
-5. When possible, ```GENRE``` uses shared memory on the GPU when performing the model fits. This memory has lower latency than global memory
-   on the GPU, so it can potentially improve performance. Whether shared memory is utilized or not is determined in the ```GENRE.m``` 
+5. When possible, ```GENRE``` uses shared memory on the GPU in addition to global memory when performing the model fits. This memory has lower latency than global memory, so it can 
+   potentially improve performance. Whether shared memory is utilized or not is determined in the ```GENRE.m``` 
    script, but it will usually be used if for the model matrix with the largest number of observations, the number of observations is less 
    than or equal to 250 observations for single precision and less than or equal to 125 observations for double precision. Note that if this 
    requirement is not met, then GPU global memory will be used for the model fits.
