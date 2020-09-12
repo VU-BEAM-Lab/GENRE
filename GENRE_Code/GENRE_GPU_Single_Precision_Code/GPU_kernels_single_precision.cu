@@ -276,7 +276,7 @@ if (block_ind == (num_blocks - 1)) {
    num_threads_per_block_2 = num_threads_last_block;
 }
 
-// This if statement makes sure that extra threads aren't doing data processing if the last beam block has less threads
+// This if statement makes sure that extra threads aren't doing data processing if the last block has less threads
 if (block_thread_ind < num_threads_per_block_2) { 
    // Obtain the flag that determines whether to perform a model fit or not
    int model_fit_flag = (int)model_fit_flag_d[fit_ind];
@@ -471,7 +471,7 @@ if (block_ind == (num_blocks - 1)) {
    num_threads_per_block_2 = num_threads_last_block;
 }
 
-// This if statement makes sure that extra threads aren't doing data processing if the last beam block has less threads
+// This if statement makes sure that extra threads aren't doing data processing if the last block has less threads
 if (block_thread_ind < num_threads_per_block_2) { 
    // Obtain the flag that determines whether to perform a model fit or not
    int model_fit_flag = (int)model_fit_flag_d[fit_ind];
@@ -693,7 +693,7 @@ if (block_thread_ind < num_threads_per_block_2) {
          start_ind = 1;
       }
 
-      // Reconstruct the signal value for the current observation by doing X_ROI * B_ROI
+      // Unnormalize the predictor coefficients
       for (int predictor_column = start_ind; predictor_column < num_predictors; predictor_column++) {
           B_d[predictor_thread_stride + predictor_column] = B_d[predictor_thread_stride + predictor_column] / scaling_factors_d[predictor_thread_stride + predictor_column];
       }
@@ -705,7 +705,7 @@ if (block_thread_ind < num_threads_per_block_2) {
 
 
 
-// Define the GPU kernel that performs predictor coefficient unnormalization
+// Define the GPU kernel that performs predictor coefficient unstandardization
 __global__ void predictor_coefficient_unstandardization(float * B_d, double * B_thread_stride_d, float * model_fit_flag_d, float * X_matrix_d, double * X_matrix_thread_stride_d, float * scaling_factors_d, float * mean_X_matrix_d, double * num_predictors_d, float * intercept_flag_d, int num_threads_per_block, int num_blocks, int num_threads_last_block) {
 
 // Obtain the index of the block
@@ -750,7 +750,7 @@ if (block_thread_ind < num_threads_per_block_2) {
       // Declare and initialize the variable that is used to adjust the intercept term if it is included
       float sum_value = 0.0f;
 
-      // Reconstruct the signal value for the current observation by doing X_ROI * B_ROI
+      // Perform predictor coefficient unstandardization
       for (int predictor_column = start_ind; predictor_column < num_predictors; predictor_column++) {
           float B_unstandardized = B_d[predictor_thread_stride + predictor_column] / scaling_factors_d[predictor_thread_stride + predictor_column];
           B_d[predictor_thread_stride + predictor_column] = B_unstandardized;
