@@ -244,7 +244,7 @@ B_cell = GENRE(precision, num_fits, data_path, save_path, output_filename, ...
     transformation_flag);
 ```
 
-Once you are finished entering the values listed above, run the ```run_GENRE.m``` script. This will perform the model fits on the GPU, and it will save out the parameters and the computed model coefficients for the model fits to the specified directory. The variable containing the coefficients that is saved to the file is ```B_cell```, and it should also be available within the MATLAB workspace. Each entry in this cell contains the computed model coefficients for a specific fit. For example, to view the coefficients for the first model fit, type the following command within the MATLAB command prompt.
+Once you are finished typing the lines of code above, run the ```run_GENRE.m``` script. This will perform the model fits on the GPU, and it will save out the parameters and the computed model coefficients for the model fits to the specified directory. The variable containing the coefficients that is saved to the file is ```B_cell```, and it should also be available within the MATLAB workspace. Each entry in this cell contains the computed model coefficients for a specific fit. For example, to view the coefficients for the first model fit, type the following command within the MATLAB command prompt.
 
 ```Matlab
 B_first_model_fit = B_cell{1};
