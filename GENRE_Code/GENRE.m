@@ -14,17 +14,11 @@
 
 
 % Description of GENRE.m:
-% This script is the main program for calling the GENRE (GPU Elastic-Net REgression) 
-% software package from within MATLAB
+% This is the main function that is used to call the GENRE (GPU Elastic-Net 
+% REgression) software package from within MATLAB
 
-
-% Clear the workspace, close all figures, and clear MEX to unload any
-% MEX-functions from memory
-clear all; close all; clear mex;
-
-
-%% User-Defined Parameters %%
-% Specify whether to use single precision or double precision (there is
+% User-Defined Parameters:
+% precision: Specifies whether to use single precision or double precision (there is
 % typically a performance penalty when using double precision instead of
 % single precision on GPUs, but using single precision has the trade-off of
 % reduced numerical precision). Depending on factors such as the 
@@ -33,43 +27,52 @@ clear all; close all; clear mex;
 % precision, then you should ensure that this precision is sufficient
 % for your application. If you are uncertain, then it is recommended to use
 % double precision.
-precision = 'single';
 
-% Specify the number of model fits
-num_fits = 5000;
+% num_fits: Specifies the number of model fits
 
-% Specify the path to the files that contain the data for the model fits
-data_path = 'enter path here';
+% data_path: Specifies the path to the files that contain the data for the 
+% model fits
 
-% Specify the path to save out the parameters and the computed model coefficients
+% save_path: Specifies the path to save out the parameters and the computed 
+% model coefficients for the model fits
+
+% output_filename: Specifies the name of the output file
+
+% alpha_values_h: Vector containing the alpha values that are used for the
+% model fits
+
+% lambda_values_h: Vector containing the lambda values that are used for the
+% model fits
+
+% tolerance_values_h: Vector containing the tolerance values that are used
 % for the model fits
-save_path = 'enter path here';
 
-% Specify the name of the output file
-output_filename = 'model_coefficients.mat';
+% max_iterations_values_h: Vector containing the maximum iterations values
+% that are used for the model fits
 
-% Define or load in the alpha values that are used for the model fits 
-alpha_values_h = repmat(0.9, [num_fits, 1]);
+% transformation_flag: Specifies the flag that determines which 
+% transformation option to use for all of the model fits (1 = standardize 
+% the predictors on the GPU and return the unstandardized model 
+% coefficients, 2 = normalize the predictors on the GPU and return the 
+% unnormalized model coefficients, 3 = the predictors are already 
+% standardized and return the standardized model coefficients, and 4 = the 
+% predictors are already normalized and return the normalized model 
+% coefficients). Note that the same transformation flag has to be used for 
+% all of the model fits.
 
-% Define or load in the lambda values that are used for the model fits 
-lambda_values_h = repmat(0.001, [num_fits, 1]);
+% Output:
+% B_cell: Cell containing the computed model coefficients that are obtained 
+% for each model fit (the model coefficients are also saved along with 
+% other parameters using the specified save path and output filename)
 
-% Define the tolerance values that are used for the model fits
-tolerance_values_h = repmat(1E-4, [num_fits, 1]);
 
-% Define the maximum iterations values that are used for the model fits
-max_iterations_values_h = repmat(100000, [num_fits, 1]);
+function B_cell = GENRE(precision, num_fits, data_path, save_path, output_filename, ...
+    alpha_values_h, lambda_values_h, tolerance_values_h, max_iterations_values_h, ...
+    transformation_flag)
 
-% Specify the flag that determines which transformation option to use for
-% all of the model fits (1 = standardize the predictors on the GPU and 
-% return the unstandardized model coefficients, 2 = normalize the
-% predictors on the GPU and return the unnormalized model coefficients,
-% 3 = the predictors are already standardized and return the standardized 
-% model coefficients, and 4 = the predictors are already normalized and 
-% return the normalized model coefficients). Note that the same
-% transformation flag has to be used for all of the model fits.
-transformation_flag = 1;
-
+%% Clear MEX %%
+% Clear MEX to unload any MEX-functions from memory
+clear mex;
 
 %% Data Organization %%
 % Call the data_organizer.m script file to organize the data for the model
@@ -229,3 +232,5 @@ save(fullfile(save_path, output_filename), '-v7.3', 'B_cell', 'precision', ...
     'alpha_values_h', 'lambda_values_h', 'tolerance_values_h', ...
     'max_iterations_values_h', 'transformation_flag');
 fprintf('Saving of outputs complete.\n');
+
+end
