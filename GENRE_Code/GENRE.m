@@ -70,7 +70,6 @@ function B_cell = GENRE(precision, num_fits, data_path, save_path, output_filena
     alpha_values_h, lambda_values_h, tolerance_values_h, max_iterations_values_h, ...
     transformation_flag)
 
-%% Clear MEX %%
 % Clear MEX to unload any MEX-functions from memory
 clear mex;
 
