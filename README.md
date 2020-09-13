@@ -66,6 +66,13 @@ cd ../GENRE_GPU_Double_Precision_Code
 mexcuda GENRE_GPU_double_precision.cu -L/usr/local/cuda-10.0/lib64
 ```
 
+### Testing GENRE
+* To ensure that the setup process is successful, the ```test_GENRE.m``` function is included in the ```GENRE_Code``` folder. Once the previous steps have been completed, type the command shown below into the MATLAB command prompt. This function generates a test dataset consisting of model matrices and data to fit the models to. This dataset is stored into a folder called ```Test_Models```, which is created when the function is executed. The function then performs the model fits using ```GENRE```. Both double precision and single precision are tested for the model fits. If the tests are successful, then a folder called ```Test_Model_Coefficients``` will be created, and it will contain two ```.mat``` files called ```model_coefficients_single_precision.mat``` and ```model_coefficients_double_precision.mat```.
+
+```Matlab
+test_GENRE
+```
+
 ## Model Data Format
 As previously stated, ```GENRE``` allows for many models to run in parallel on the GPU. The data for each model fit needs to be saved as a ```.mat``` file. For example, if there are 100 model fits that need to be performed, then there should be 100 ```.mat``` files. Each file should contain the following 3 variables. 
 * ```X```: The model matrix 
