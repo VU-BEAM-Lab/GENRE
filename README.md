@@ -83,7 +83,7 @@ hold on;
 plot(y_first_model_fit, 'r');
 ```
 
-* Once the ```test_GENRE.m``` function is executed, the ```test_GENRE_shared_memory.m``` function can be executed by typing the command shown below into the MATLAB command prompt.
+* In order to execute the ```test_GENRE_shared_memory.m``` function, type the command shown below into the MATLAB command prompt.
 
 ```Matlab
 test_GENRE_shared_memory
