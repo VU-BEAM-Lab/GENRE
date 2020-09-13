@@ -74,6 +74,7 @@ function B_cell = GENRE(precision, num_fits, data_path, save_path, output_filena
 % Clear MEX to unload any MEX-functions from memory
 clear mex;
 
+
 %% Data Organization %%
 % Call the data_organizer.m script file to organize the data for the model
 % fits
