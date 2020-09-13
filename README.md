@@ -89,7 +89,7 @@ plot(y_first_model_fit, 'r');
 test_GENRE_shared_memory
 ```
 
-* This function does the same thing as the ```test_GENRE.m``` function, but it uses smaller model matrix sizes in order to test the case when ```GENRE``` is able to use shared memory in addition to global memory in order to perform the model fits. This function also creates two folders, but they are called ```Shared_Memory_Test_Models``` and ```Shared_Memory_Test_Model_Coefficients```. It is recommended to repeat the same analysis of comparing the reconstructed data by an example model fit to ```y``` for the particular model fit. Note that once testing is finished, the ```Shared_Memory_Test_Models``` and ```Shared_Memory_Test_Model_Coefficients``` folders can be deleted. 
+* This function does the same thing as the ```test_GENRE.m``` function, but it uses smaller model matrix sizes in order to test the case when ```GENRE``` is able to use shared memory in addition to global memory in order to perform the model fits. This function also creates two folders, but they are called ```Test_Shared_Memory_Models``` and ```Test_Shared_Memory_Model_Coefficients```. It is recommended to repeat the same analysis of comparing the reconstructed data by an example model fit to ```y``` for the particular model fit. Note that once testing is finished, the ```Test_Shared_Memory_Models``` and ```Test_Shared_Memory_Model_Coefficients``` folders can be deleted. 
 
 ## Model Data Format
 As previously stated, ```GENRE``` allows for many models to run in parallel on the GPU. The data for each model fit needs to be saved as a ```.mat``` file. For example, if there are 100 model fits that need to be performed, then there should be 100 ```.mat``` files. Each file should contain the following 3 variables. 
