@@ -13,12 +13,13 @@
 % limitations under the License.
 
 
-% Description of test_GENRE.m:
+% Description of test_GENRE_shared_memory.m:
 % This function is used to test that the GENRE (GPU Elastic-Net REgression) 
-% software package works on a system
+% software package works on a system (it specifically tests the case when
+% shared memory is used)
 
 
-function test_GENRE()
+function test_GENRE_shared_memory()
 
 % Clear all workspace variables and close all figures
 clear all; close all; 
@@ -27,7 +28,7 @@ clear all; close all;
 %% Define Parameters %%
 fprintf('Testing beginning.\n');
 % Create a new directory
-mkdir('Test_Models');
+mkdir('Shared_Memory_Test_Models');
 
 % Define the number of model fits to perform
 num_fits = 200;
@@ -37,7 +38,7 @@ current_directory = pwd;
 
 % Define the path to the directory in which the model data files will be 
 % saved
-save_path = fullfile(current_directory, 'Test_Models');
+save_path = fullfile(current_directory, 'Shared_Memory_Test_Models');
 
 
 %% Test Data Generation %%
@@ -46,8 +47,8 @@ fprintf('Beginning test data generation.\n');
 for ii = 1:num_fits
     % Randomly generate the number of observations and predictors for the 
     % model fit 
-    num_observations = randi([300, 400], 1);
-    num_predictors = randi([500, 600], 1);
+    num_observations = randi([50, 100], 1);
+    num_predictors = randi([200, 300], 1);
     
     % Create the model matrix for the model fit
     X = randn(num_observations, num_predictors);
@@ -86,11 +87,11 @@ precision = 'single';
 data_path = save_path;
 
 % Create a new directory
-mkdir('Test_Model_Coefficients');
+mkdir('Shared_Memory_Test_Model_Coefficients');
 
 % Specify the path to save out the parameters and the computed model coefficients
 % for the model fits
-save_path = fullfile(current_directory, 'Test_Model_Coefficients');
+save_path = fullfile(current_directory, 'Shared_Memory_Test_Model_Coefficients');
 
 % Specify the name of the output file to which the model coefficients
 % computed using single precision are saved
