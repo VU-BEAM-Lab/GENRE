@@ -67,7 +67,7 @@ mexcuda GENRE_GPU_double_precision.cu -L/usr/local/cuda-10.0/lib64
 ```
 
 ### Testing GENRE
-* To ensure that the setup process is successful, the ```test_GENRE.m``` and the ```test_GENRE_shared_memory.m``` functions are included in the ```GENRE_Code``` folder. You can begin by using the ```test_GENRE.m``` function. Once the previous steps have been completed, type the command shown below into the MATLAB command prompt. 
+* To ensure that the setup process is successful, the ```test_GENRE.m``` and the ```test_GENRE_shared_memory.m``` functions are included in the ```GENRE_Code``` folder. In order to execute the ```test_GENRE.m``` function, type the command shown below into the MATLAB command prompt once the previous steps have been completed. 
 
 ```Matlab
 test_GENRE
