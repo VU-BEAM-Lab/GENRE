@@ -67,13 +67,13 @@ mexcuda GENRE_GPU_double_precision.cu -L/usr/local/cuda-10.0/lib64
 ```
 
 ### Testing GENRE
-* To ensure that the setup process is successful, the ```test_GENRE.m``` function is included in the ```GENRE_Code``` folder. Once the previous steps have been completed, type the command shown below into the MATLAB command prompt. 
+* To ensure that the setup process is successful, the ```test_GENRE.m``` and the ```test_GENRE_shared_memory.m``` functions are included in the ```GENRE_Code``` folder. We will begin by using the ```test_GENRE.m``` function. Once the previous steps have been completed, type the command shown below into the MATLAB command prompt. 
 
 ```Matlab
 test_GENRE
 ```
 
-* This function generates a test dataset consisting of model matrices and data to fit the models to. This dataset is stored into a folder called ```Test_Models```, which is created when the function is executed (the folder is created in the MATLAB directory that is current when the ```test_GENRE.m``` function is called). The function then performs the model fits using ```GENRE```. Both double precision and single precision are tested for the model fits. If the tests are successful, then a folder called ```Test_Model_Coefficients``` will be created (the folder is created in the MATLAB directory that is current when the ```test_GENRE.m``` function is called), and it will contain two ```.mat``` files that are called ```model_coefficients_single_precision.mat``` and ```model_coefficients_double_precision.mat```. These files contain the computed model coefficients for the model fits and the parameters that were used for the model fits (refer to the following sections for more details). In particular, the computed model coefficients are contained in the variable ```B_cell```, where each entry in this cell corresponds to a different model fit. For example, to see the result of the first model fit, the user can load in either one of these files along with the ```model_data_1.mat``` file that is located in the ```Test_Models``` folder. The ```X``` variable that is contained in this file corresponds to the model matrix for the first model fit, and the ```y``` variable corresponds to the data that the model matrix was fit to. The data that is reconstructed by the first model fit can be obtained and plotted along with ```y``` by typing the command shown below in the MATLAB command prompt. It is recommended to do this comparison and see how the model fit turned out in order to further ensure that ```GENRE``` is setup and working properly. Note that once testing is finished, the ```Test_Models``` and ```Test_Model_Coefficients``` folders can be deleted.
+* This function generates a test dataset consisting of model matrices and data to fit the models to. This dataset is stored into a folder called ```Test_Models```, which is created when the function is executed (the folder is created in the MATLAB directory that is current when the ```test_GENRE.m``` function is called). The function then performs the model fits using ```GENRE```. Both double precision and single precision are tested for the model fits. If the tests are successful, then a folder called ```Test_Model_Coefficients``` will be created (the folder is created in the MATLAB directory that is current when the ```test_GENRE.m``` function is called), and it will contain two ```.mat``` files that are called ```model_coefficients_single_precision.mat``` and ```model_coefficients_double_precision.mat```. These files contain the computed model coefficients for the model fits and the parameters that were used for the model fits (refer to the following sections for more details). In particular, the computed model coefficients are contained in the variable ```B_cell```, where each entry in this cell corresponds to a different model fit. For example, to see the result of the first model fit, the user can load in either one of these files along with the ```model_data_1.mat``` file that is located in the ```Test_Models``` folder. The ```X``` variable that is contained in this file corresponds to the model matrix for the first model fit, and the ```y``` variable corresponds to the data that the model matrix was fit to. The data that is reconstructed by the first model fit can be obtained and plotted along with ```y``` by typing the command shown below in the MATLAB command prompt. It is recommended to do this comparison and see how the model fit turned out in order to further ensure that ```GENRE``` is setup and working properly. Note that once testing is finished, the ```Test_Models``` and ```Test_Model_Coefficients``` folders can be deleted. 
 
 ```Matlab
 y_first_model_fit = X * B_cell{1};
@@ -82,6 +82,14 @@ plot(y, 'b');
 hold on;
 plot(y_first_model_fit, 'r');
 ```
+
+* Once the ```test_GENRE.m``` function is executed, the ```test_GENRE_shared_memory.m``` function can be executed by typing the command shown below into the MATLAB command prompt.
+
+```Matlab
+test_GENRE_shared_memory
+```
+
+* This function does the same thing as the ```test_GENRE.m``` function, but it uses smaller model sizes in order to test the case when ```GENRE``` is able to use shared memory in addition to global memory in order to perform the model fits. This function also creates two folders, but they are called ```Shared_Memory_Test_Models``` and ```Shared_Memory_Test_Model_Coefficients```. It is recommended to repeat the same analysis of comparing the reconstructed data by an example model fit to ```y``` for the particular model fit.
 
 ## Model Data Format
 As previously stated, ```GENRE``` allows for many models to run in parallel on the GPU. The data for each model fit needs to be saved as a ```.mat``` file. For example, if there are 100 model fits that need to be performed, then there should be 100 ```.mat``` files. Each file should contain the following 3 variables. 
