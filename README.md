@@ -184,6 +184,9 @@ end
 Once this script is written, run it within MATLAB. This will generate the data for each model fit, and each set of data is saved to an individual file located in the specified directory. The next step is to process the data. Create a new script called ```run_GENRE.m``` and type the lines of code that are shown below.
 
 ```Matlab
+% Clear the workspace and close all figures
+clear all; close all;
+
 % Specify whether to use single precision or double precision (there is
 % typically a performance penalty when using double precision instead of
 % single precision on GPUs, but using single precision has the trade-off of
