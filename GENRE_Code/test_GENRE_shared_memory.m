@@ -28,7 +28,7 @@ clear all; close all;
 %% Define Parameters %%
 fprintf('Testing beginning.\n');
 % Create a new directory
-mkdir('Shared_Memory_Test_Models');
+mkdir('Test_Shared_Memory_Models');
 
 % Define the number of model fits to perform
 num_fits = 200;
@@ -38,7 +38,7 @@ current_directory = pwd;
 
 % Define the path to the directory in which the model data files will be 
 % saved
-save_path = fullfile(current_directory, 'Shared_Memory_Test_Models');
+save_path = fullfile(current_directory, 'Test_Shared_Memory_Models');
 
 
 %% Test Data Generation %%
@@ -87,11 +87,11 @@ precision = 'single';
 data_path = save_path;
 
 % Create a new directory
-mkdir('Shared_Memory_Test_Model_Coefficients');
+mkdir('Test_Shared_Memory_Model_Coefficients');
 
 % Specify the path to save out the parameters and the computed model coefficients
 % for the model fits
-save_path = fullfile(current_directory, 'Shared_Memory_Test_Model_Coefficients');
+save_path = fullfile(current_directory, 'Test_Shared_Memory_Model_Coefficients');
 
 % Specify the name of the output file to which the model coefficients
 % computed using single precision are saved
