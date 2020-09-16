@@ -62,30 +62,15 @@ GENRE has the potential to provide significant speedup due to the fact that many
 
  \begin{centering}
 \scriptsize
-\begin{tabularx}{0.48\textwidth} { 
-  | >{\centering\arraybackslash}X 
-  | >{\centering\arraybackslash}X 
-  | >{\centering\arraybackslash}X
-  | >{\centering\arraybackslash}X      
-  | >{\centering\arraybackslash}X | }
+\begin{tabular}[h]{| l | c | c |} 
 \hline
-\multicolumn{5}{|c|}{\textbf{TABLE VI:} $\boldsymbol{\alpha}$ \textbf{Benchmarks}} \\
+\multicolumn{3}{|c|}{\textbf{TABLE I: Benchmark Times (s)}} \\
 \hline
-$\boldsymbol{\alpha}$ & \textbf{1080 Ti Time (s)}  & \textbf{2080 Ti Time (s)} &\textbf{Multi-GPU Time (s)} & \textbf{Multi-GPU Beam Distributions (1080 Ti/2080 Ti)} \\
+\textbf{GENRE Single Precision} & \textbf{GENRE Double Precision} & \textbf{glmnet} \\
 \hline
-1 & 1.269 $\pm$ 0.002 & 0.433 $\pm$ 0.012 & 0.344 $\pm$ 0.001 & 32/96 \\
-0.9 & 1.269 $\pm$ 0.001 & 0.433 $\pm$ 0.001 & 0.342 $\pm$ 0.001 & 32/96 \\
-0.8 & 1.275 $\pm$ 0.014 & 0.448 $\pm$ 0.011 & 0.347 $\pm$ 0.001 & 32/96 \\
-0.7 & 1.273 $\pm$ 0.002 & 0.451 $\pm$ 0.010 & 0.353 $\pm$ 0.002 & 32/96 \\
-0.6 & 1.282 $\pm$ 0.004 & 0.455 $\pm$ 0.002 & 0.355 $\pm$ 0.002 & 32/96 \\
-0.5 & 1.292 $\pm$ 0.003 & 0.468 $\pm$ 0.001 & 0.366 $\pm$ 0.001 & 32/96 \\
-0.4 & 1.317 $\pm$ 0.003 & 0.490 $\pm$ 0.014 & 0.385 $\pm$ 0.002 & 32/96 \\
-0.3 & 1.330 $\pm$ 0.011 & 0.501 $\pm$ 0.001 & 0.397 $\pm$ 0.001 & 32/96 \\
-0.2 & 1.334 $\pm$ 0.006 & 0.508 $\pm$ 0.001 & 0.401 $\pm$ 0.002 & 32/96 \\
-0.1 & 1.336 $\pm$ 0.010 & 0.511 $\pm$ 0.001 & 0.407 $\pm$ 0.010 & 32/96 \\
-0 & 1.335 $\pm$ 0.006 & 0.509 $\pm$ 0.001 & 0.402 $\pm$ 0.001 & 32/96 \\ 
+1.083 $\pm$ 0.021 & 1.378 $\pm$ 0.016 & 10.542 $\pm$ 0.136 \\
 \hline
-\end{tabularx}
+\end{tabular}
 \end{centering}
 
 # Acknowledgements
