@@ -66,7 +66,7 @@ GENRE has the potential to provide significant speedup due to the fact that many
 \hline
 \multicolumn{5}{|c|}{\textbf{TABLE I: Benchmark Times (s)}} \\
 \hline
-\textbf{GENRE Double Precision} & \textbf{GENRE Double Precision Shared Memory} & \textbf{GENRE Single Precision} & \textbf{GENRE Single Precision Shared Memory} & \textbf{glmnet} \\
+\textbf{GENRE Double Precision} & \textbf{GENRE Double Precision SMEM} & \textbf{GENRE Single Precision} & \textbf{GENRE Single Precision SMEM} & \textbf{glmnet} \\
 \hline
  1.378 $\pm$ 0.016 & 1.152 $\pm$ 0.020 & 1.083 $\pm$ 0.021 & 0.943 $\pm$ 0.027 & 10.542 $\pm$ 0.136 \\
 \hline
