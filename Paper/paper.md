@@ -92,6 +92,8 @@ As shown in Table I, GENRE provides an order of magnitude speedup when compared 
 \end{tabular}
 \end{centering}
 
+As shown in Table II, when the model matrices can be reused and do not have to be reloaded, GENRE provides a speedup of over two orders of magnitude when compared with glmnet, and using single precision with shared memory provides the best performance. This type of performance gain would most likely be difficult to achieve even when using a multi-CPU implementation of cyclic coordinate descent on a single host system.
+
 # Acknowledgements
 This work was supported by NIH grants R01EB020040 and S10OD016216-01 and NAVSEA grant N0002419C4302.
 
