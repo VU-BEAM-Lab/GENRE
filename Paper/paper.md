@@ -60,29 +60,32 @@ Aside from this application, there are a number of other applications that can p
 # Example Benchmark Comparing GENRE to glmnet
 GENRE has the potential to provide significant speedup due to the fact that many model fits can be performed in parallel on a GPU. Therefore, an example benchmark was performed where we compared GENRE to glmnet, which is written in Fortran and performs the model fits in a serial fashion on a CPU. In this benchmark, 20,000 model matrices were randomly generated within MATLAB. Each model matrix consisted of 50 observations and 200 predictors (50x200). For each model matrix, the model coefficients were randomly generated, and the matrix multiplication of the model matrix and the coefficients was performed to obtain the observation vector. Therefore, this provided 20,000 observation vectors with each containing 50 observations. Once the data was generated, both GENRE and glmnet were used to perform the model fits and return the computed model coefficients. GENRE allows for the user to select either single precision or double precision for performing the model fits on the GPU, so processing was done for both cases. The MATLAB version of the glmnet software package includes a compiled executable MEX-file that allows for Fortran code to be called, and it uses double precision for the calculations. In addition, due to the fact that all of the model matrices have a small number of observations (50) in this case, GENRE is also able to use shared memory in addition to global memory when performing the model fits. Shared memory has lower latency than global memory, so utilizing it can provide performance benefits. Therefore, processing was performed both with and without using shared memory. The computer that was used for the benchmarks contained dual Intel Xeon Silver 4114 CPUs @ 2.20 GHz with 10 cores each along with an NVIDIA GeForce GTX 1080 Ti GPU and an NVIDIA GeForce RTX 2080 Ti GPU. The 2080 Ti GPU was used to perform GPU processing. For each case, the average of 10 runs was taken, and timing was performed using MATLAB's built-in timing capabilities. Note that GENRE has a data organization step that loads data from files and organizes it in the format that is used by the GPU. For this benchmark, this step was not counted in the timing due to the fact that it was assumed that all of the data was already loaded into MATLAB for both GENRE and glmnet. In addition, the GPU times also include the time it takes to transfer data for the model fits from the host system to the GPU and the time it takes to transfer the computed model coefficients back from the GPU to the host system. The benchmark results are shown in Table I below.
 
- \begin{centering} 
-\footnotesize
-\begin{tabular}[h]{| l | c | c |} 
+ \begin{centering}
+\scriptsize
+\begin{tabularx}{0.48\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X
+  | >{\centering\arraybackslash}X      
+  | >{\centering\arraybackslash}X | }
 \hline
-\multicolumn{2}{|c|}{\textbf{TABLE I: Imaging/Processing Parameters Used for Benchmark}} \\
+\multicolumn{5}{|c|}{\textbf{TABLE VI:} $\boldsymbol{\alpha}$ \textbf{Benchmarks}} \\
 \hline
-\textbf{Imaging/Processing Parameter} & \textbf{Simulated Dataset} \\
+$\boldsymbol{\alpha}$ & \textbf{1080 Ti Time (s)}  & \textbf{2080 Ti Time (s)} &\textbf{Multi-GPU Time (s)} & \textbf{Multi-GPU Beam Distributions (1080 Ti/2080 Ti)} \\
 \hline
-Depth Samples & 2,400 \\
-Elements per Beam & 128 \\
-Beams & 128 \\
-f0 (MHz) & 5.8125 \\
-fs (MHz) & 23.25 \\
-Padded STFT Window Length & 12 \\
-STFT Window Overlap & 0\% \\
-Frequencies Fit per STFT Window & 3 \\
-$\alpha$ for Regularization & 0.9 \\
-$c_{\lambda}$ for Regularization & 0.0189 \\
-Coordinate Descent Max Iterations & 100,000 \\
-Coordinate Descent Tolerance & 0.1 \\
-Aperture Growth & Not Applied \\
+1 & 1.269 $\pm$ 0.002 & 0.433 $\pm$ 0.012 & 0.344 $\pm$ 0.001 & 32/96 \\
+0.9 & 1.269 $\pm$ 0.001 & 0.433 $\pm$ 0.001 & 0.342 $\pm$ 0.001 & 32/96 \\
+0.8 & 1.275 $\pm$ 0.014 & 0.448 $\pm$ 0.011 & 0.347 $\pm$ 0.001 & 32/96 \\
+0.7 & 1.273 $\pm$ 0.002 & 0.451 $\pm$ 0.010 & 0.353 $\pm$ 0.002 & 32/96 \\
+0.6 & 1.282 $\pm$ 0.004 & 0.455 $\pm$ 0.002 & 0.355 $\pm$ 0.002 & 32/96 \\
+0.5 & 1.292 $\pm$ 0.003 & 0.468 $\pm$ 0.001 & 0.366 $\pm$ 0.001 & 32/96 \\
+0.4 & 1.317 $\pm$ 0.003 & 0.490 $\pm$ 0.014 & 0.385 $\pm$ 0.002 & 32/96 \\
+0.3 & 1.330 $\pm$ 0.011 & 0.501 $\pm$ 0.001 & 0.397 $\pm$ 0.001 & 32/96 \\
+0.2 & 1.334 $\pm$ 0.006 & 0.508 $\pm$ 0.001 & 0.401 $\pm$ 0.002 & 32/96 \\
+0.1 & 1.336 $\pm$ 0.010 & 0.511 $\pm$ 0.001 & 0.407 $\pm$ 0.010 & 32/96 \\
+0 & 1.335 $\pm$ 0.006 & 0.509 $\pm$ 0.001 & 0.402 $\pm$ 0.001 & 32/96 \\ 
 \hline
-\end{tabular}
+\end{tabularx}
 \end{centering}
 
 # Acknowledgements
