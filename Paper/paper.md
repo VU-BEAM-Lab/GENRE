@@ -72,7 +72,7 @@ The computer that was used for the benchmarks contained dual Intel Xeon Silver 4
 \hline
 \textbf{GENRE DP} & \textbf{GENRE DP SMEM} & \textbf{GENRE SP} & \textbf{GENRE SP SMEM} & \textbf{glmnet} \\
 \hline
- 1.378 $\pm$ 0.016 & 1.152 $\pm$ 0.020 & 1.083 $\pm$ 0.021 & 0.943 $\pm$ 0.027 & 10.542 $\pm$ 0.136 \\
+ 1.367 $\pm$ 0.024 & 1.137 $\pm$ 0.015 & 1.048 $\pm$ 0.008 & 0.909 $\pm$ 0.006 & 10.319 $\pm$ 0.039 \\
 \hline
 \end{tabular}
 \end{centering}
@@ -91,7 +91,7 @@ As shown in Table I, GENRE provides an order of magnitude speedup when compared 
 \hline
 \textbf{GENRE DP} & \textbf{GENRE DP SMEM} & \textbf{GENRE SP} & \textbf{GENRE SP SMEM} & \textbf{glmnet} \\
 \hline
- 0.307 $\pm$ 0.003 & 0.082 $\pm$ 0.003 & 0.211 $\pm$ 0.008 & 0.070 $\pm$ 0.004 & 10.542 $\pm$ 0.136 \\
+ 0.307 $\pm$ 0.003 & 0.083 $\pm$ 0.001 & 0.197 $\pm$ 0.002 & 0.056 $\pm$ 0.001 & 10.319 $\pm$ 0.039 \\
 \hline
 \end{tabular}
 \end{centering}
