@@ -52,7 +52,7 @@ programming language for convenience. This also means that with modification, th
 another interface if it is desired to call the C/CUDA code in another language, or the C/CUDA code can be utilized 
 without an interface. Note that other packages have been developed that can utilize GPUs for linear regression with
 elastic-net regularization, such as H2O4GPU [@H2O4GPU_2020]. However, these packages typically focus on performing
-parallel computations on the GPU for one model fit in order to achieve acceleration when compared to a serial CPU
+parallel computations on the GPU for one model fit at a time in order to achieve acceleration when compared to a serial CPU
 implementation. For GENRE, the computations for a single model fit are not parallelized on the GPU. Instead, many model
 fits on the GPU are executed in parallel, where each model fit is performed by one computational thread.
 
@@ -102,7 +102,7 @@ As shown in Table I, GENRE provides an order of magnitude speedup when compared 
 
 \vspace{0.3 cm}
 
-As shown in Table II, when the model matrices can be reused and do not have to be transferred again, GENRE provides a speedup of over two orders of magnitude when compared with glmnet, and using single precision with shared memory provides the best performance. This type of performance gain would most likely be difficult to achieve even when using a multi-CPU implementation of cyclic coordinate descent on a single host system. In addition, it is important to note that this benchmark was just to illustrate an example of when using GENRE provides performance benefits, but whether a GPU solution or a CPU solution is best depends on the problem. For example, in GENRE, one computational thread on the GPU is used to perform each model fit. Therefore, when many model fits need to be performed, the parallelism of the GPU can be utilized. However, if only one model fit needs to be performed, then using a serial CPU implementation such as glmnet will most likely provide better performance due to factors such as CPU cores having higher clock rates and more resources per core than GPU cores.
+As shown in Table II, when the model matrices can be reused and do not have to be transferred again, GENRE provides a speedup of over two orders of magnitude when compared with glmnet, and using single precision with shared memory provides the best performance. This type of performance gain would most likely be difficult to achieve even when using a multi-CPU implementation of cyclic coordinate descent on a single host system. In addition, it is important to note that this benchmark was just to illustrate an example of when using GENRE provides performance benefits, but whether or not performance benefits are achieved depends on the problem. For example, in GENRE, one computational thread on the GPU is used to perform each model fit. Therefore, when many model fits need to be performed, the parallelism of the GPU can be utilized. However, if only one model fit needs to be performed, then using a serial CPU implementation such as glmnet will most likely provide better performance than GENRE due to factors such as CPU cores having higher clock rates and more resources per core than GPU cores.
 
 # Acknowledgements
 This work was supported by NIH grants R01EB020040 and S10OD016216-01 and NAVSEA grant N0002419C4302.
