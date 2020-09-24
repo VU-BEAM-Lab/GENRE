@@ -69,7 +69,6 @@ The computer that was used for the benchmarks contained dual Intel Xeon Silver 4
 \vspace{0.3 cm}
 
  \begin{centering}
- \begin{table}
  \caption{\label{tab:table1}Benchmark times (seconds).}
  \footnotesize
 \begin{tabular}[h]{| c | c | c | c | c |} 
@@ -79,7 +78,6 @@ The computer that was used for the benchmarks contained dual Intel Xeon Silver 4
  1.367 $\pm$ 0.024 & 1.137 $\pm$ 0.015 & 1.048 $\pm$ 0.008 & 0.909 $\pm$ 0.006 & 10.319 $\pm$ 0.039 \\
 \hline
 \end{tabular}
-\end{table}
 \end{centering}
 
 \vspace{0.3 cm}
@@ -89,9 +87,8 @@ As shown in Table \ref{table1}, GENRE provides an order of magnitude speedup whe
 \vspace{0.3 cm}
 
  \begin{centering}
- \footnotesize
-  \begin{table}
  \caption{\label{tab:table2}Benchmark times (seconds).}
+  \footnotesize
 \begin{tabular}[h]{| c | c | c | c | c |} 
 \hline
 \textbf{GENRE DP} & \textbf{GENRE DP SMEM} & \textbf{GENRE SP} & \textbf{GENRE SP SMEM} & \textbf{glmnet} \\
@@ -99,7 +96,6 @@ As shown in Table \ref{table1}, GENRE provides an order of magnitude speedup whe
  0.307 $\pm$ 0.003 & 0.083 $\pm$ 0.001 & 0.197 $\pm$ 0.002 & 0.056 $\pm$ 0.001 & 10.319 $\pm$ 0.039 \\
 \hline
 \end{tabular}
-\end{table}
 \end{centering}
 
 \vspace{0.3 cm}
