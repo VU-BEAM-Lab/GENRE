@@ -90,7 +90,7 @@ As shown in Table \ref{tab:table1}, GENRE provides an order of magnitude speedup
 
  \begin{centering}
   \begin{table}[h!]
- \caption{\label{tab:table2}Benchmark times (seconds) when the model matrices can be reused in subsequent calls.}
+ \caption{\label{tab:table2}Benchmark times (seconds) for subsequent calls reusing the model matrices.}
   \footnotesize
 \begin{tabular}[h]{| c | c | c | c | c |} 
 \hline
