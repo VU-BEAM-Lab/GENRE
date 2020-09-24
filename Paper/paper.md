@@ -79,6 +79,7 @@ The computer that was used for the benchmarks contained dual Intel Xeon Silver 4
  1.367 $\pm$ 0.024 & 1.137 $\pm$ 0.015 & 1.048 $\pm$ 0.008 & 0.909 $\pm$ 0.006 & 10.319 $\pm$ 0.039 \\
 \hline
 \end{tabular}
+\end{table}
 \end{centering}
 
 \vspace{0.3 cm}
