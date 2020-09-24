@@ -90,7 +90,7 @@ As shown in Table \ref{tab:table1}, GENRE provides an order of magnitude speedup
 
  \begin{centering}
   \begin{table}[h!]
- \caption{\label{tab:table2}Benchmark times (seconds).}
+ \caption{\label{tab:table2}Benchmark times (seconds) when the model matrices are already on the GPU}
   \footnotesize
 \begin{tabular}[h]{| c | c | c | c | c |} 
 \hline
