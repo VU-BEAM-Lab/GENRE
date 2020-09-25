@@ -44,7 +44,7 @@ This algorithm consists of minimizing the objective function with respect to one
 Cycling through all of the coefficients results in one iteration, and this process continues until specified
 convergence criteria are satisfied. As previously stated, glmnet is highly efficient for single model fits, but
 performing thousands of these fits will still require significant computational time due to each one being executed 
-in a serial fashion on a CPU. However, by using GENRE to perform massively parallel processing, a significant speedup 
+in a serial fashion on a CPU. However, by using GENRE to perform massively parallel processing on a GPU, a significant speedup 
 can potentially be achieved. This is due to the fact that modern GPUs consist of thousands of computational cores
 that can be utilized. Moreover, although the processing in GENRE is performed using the C programming language and 
 CUDA, a MEX-interface is included to allow for this code to be called within the MATLAB (The MathWorks, Inc., Natick, MA, USA) 
