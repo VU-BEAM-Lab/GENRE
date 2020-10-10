@@ -357,6 +357,7 @@ If you have questions, suggestions, or bugs to report, please use the Issues sec
 ## Citing/Contributing
 Please include the following citation to cite this repository in publications.
 
+```
 @article{Khan2020,
   doi = {10.21105/joss.02644},
   url = {https://doi.org/10.21105/joss.02644},
@@ -369,6 +370,7 @@ Please include the following citation to cite this repository in publications.
   title = {GENRE (GPU Elastic-Net REgression): A CUDA-Accelerated Package for Massively Parallel Linear Regression with Elastic-Net Regularization},
   journal = {Journal of Open Source Software}
 }
+```
 
 For contributing to this repository, please fork the repository and submit your proposed contributions in the form of a pull request. When submitting a pull request, please provide a detailed description of the proposed contributions and add @Christopher-Khan (repository manager) as a reviewer. The pull request will then be reviewed, and if it is approved, it will be merged with the master branch of the repository.
 
