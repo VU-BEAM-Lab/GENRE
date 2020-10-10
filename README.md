@@ -338,23 +338,9 @@ The computer that was used for the benchmarks contained dual Intel Xeon Silver 4
 
 As shown in Table 1, ```GENRE``` provides an order of magnitude speedup when compared to glmnet, and the best performance was achieved by using single precision with shared memory. For ```glmnet```, the benchmark result that is shown was obtained by using the naive algorithm option for the package because this option was faster than the covariance algorithm option. For example, the benchmark result that was obtained when using the covariance algorithm option was 32.271 $\pm$ 0.176 seconds. In addition, it is important to note that in these benchmarks, most of the time for ```GENRE``` was spent transferring the model matrices from the host system to the GPU. However, there are cases when once the model matrices have been used in one call, they can be reused in subsequent calls. For example, a user might want to reuse the same model matrices except just change the ![alpha](https://latex.codecogs.com/svg.latex?%5Calpha) value or the ![lambda](https://latex.codecogs.com/svg.latex?%5Clambda) value that is used in elastic-net regularization, or they might want to just change the observation vectors that the model matrices are fit to. By default, each time GENRE is called, the ```clear mex``` command is executed, and the ```GENRE``` MEX-files are setup so that all allocated memory on the GPU is freed when this command is called. However, in a case where the model matrices can be reused after they are transferred once, the ```clear mex``` command can be removed. Essentially, every time one of the MEX-files for GENRE is called for the first time, all of the data for the model fits will be transferred to the GPU. However, if the ```clear mex``` command is removed, then for subsequent calls, all of the data for the model fits will still be transferred except for the model matrices, which will be kept on the GPU from the first call. By not having to transfer the model matrices again, performance can be significantly increased. To demonstrate this, the same benchmark from above was repeated, but for each case this time, ```GENRE``` was called once before performing the 10 runs. This is to replicate the case where the model matrices are reused in subsequent calls. The benchmark results are shown in Table 2 below. Note that the benchmark for ```glmnet``` was not repeated.
 
-\vspace{0.3 cm}
-
- \begin{centering}
-  \begin{table}[h!]
- \caption{\label{tab:table2}Benchmark times (seconds) for subsequent calls reusing the model matrices.}
-  \footnotesize
-\begin{tabular}[h]{| c | c | c | c | c |} 
-\hline
-\textbf{GENRE DP} & \textbf{GENRE DP SMEM} & \textbf{GENRE SP} & \textbf{GENRE SP SMEM} & \textbf{glmnet} \\
-\hline
- 0.305 $\pm$ 0.000 & 0.080 $\pm$ 0.000 & 0.195 $\pm$ 0.001 & 0.055 $\pm$ 0.001 & 9.809 $\pm$ 0.196 \\
-\hline
-\end{tabular}
-\end{table}
-\end{centering}
-
-\vspace{0.3 cm}
+<p align="center">
+  <img src="Table_2_Benchmarks.png" />
+</p>
 
 As shown in Table 2, when the model matrices can be reused and do not have to be transferred again, ```GENRE``` provides a speedup of over two orders of magnitude when compared with ```glmnet```, and using single precision with shared memory provides the best performance. This type of performance gain would most likely be difficult to achieve even when using a multi-CPU implementation of cyclic coordinate descent on a single host system. In addition, it is important to note that this benchmark was just to illustrate an example of when using ```GENRE``` provides performance benefits, but whether or not performance benefits are achieved depends on the problem. For example, in ```GENRE```, one computational thread on the GPU is used to perform each model fit. Therefore, when many model fits are performed on a GPU, the parallelism of the GPU can be utilized. However, if only one model fit needs to be performed, then using a serial CPU implementation such as ```glmnet``` will most likely provide better performance than ```GENRE``` due to factors such as CPU cores having higher clock rates and more resources per core than GPU cores.
 
