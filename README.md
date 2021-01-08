@@ -46,13 +46,13 @@ The description provided above describes the process of performing one model fit
 
 ### Code Compilation for Windows OS
 * Assuming the repository is on your system, go to the MATLAB directory that contains the repository folders and add them to your MATLAB path. Following this, go to the ```GENRE_Code``` folder. Type the commands shown below into the MATLAB command prompt.
-  * The ```-v``` flag can also be included at the end of each mexcuda command to display compilation details. If the compilation process is successful, then it will display a success message for each compilation in the command prompt. In addition, a compiled MEX-file will appear in each folder. The compilation process is important, and it is recommended to recompile any time a different release of MATLAB is utilized.
+  * The ```-v``` flag can also be included as an argument to each mexcuda command to display compilation details. If the compilation process is successful, then it will display a success message for each compilation in the command prompt. In addition, a compiled MEX-file will appear in each folder. The compilation process is important, and it is recommended to recompile any time a different release of MATLAB is utilized.
 
 ```Matlab
 cd GENRE_GPU_Single_Precision_Code
-mexcuda GENRE_GPU_single_precision.cu
+mexcuda('GENRE_GPU_single_precision.cu', 'NVCC_FLAGS=-Xptxas -dlcm=ca')
 cd ..\GENRE_GPU_Double_Precision_Code
-mexcuda GENRE_GPU_double_precision.cu
+mexcuda('GENRE_GPU_double_precision.cu', 'NVCC_FLAGS=-Xptxas -dlcm=ca')
 ```
 
 ### Code Compilation for Linux OS
