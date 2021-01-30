@@ -311,8 +311,7 @@ Note that since we included an intercept term in every model, the first model co
 4. As previously stated, each model fit is supplied a ![lambda](https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clambda) value in ```GENRE```, so the coefficients are not 
    calculated for a path of ![lambda](https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clambda) values. One way of doing this in ```GENRE``` is to make multiple model files 
    containing the same model. Then, a different ![lambda](https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clambda) value can be supplied to each model fit via the 
-   ```lambda_values_h``` vector that is an input to the ```GENRE.m``` function. Therefore, the model coefficients for the same model using different ![lambda]
-   (https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clambda) values will be computed in parallel on the GPU. In addition, another way of calculating the coefficients for multiple 
+   ```lambda_values_h``` vector that is an input to the ```GENRE.m``` function. Therefore, the model coefficients for the same model using different ![lambda](https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clambda) values will be computed in parallel on the GPU. In addition, another way of calculating the coefficients for multiple 
    ![lambda](https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clambda) values is to follow the method described in 3 above. For example, the ```GENRE.m``` function can be modified 
    to call either the ```GENRE_GPU_single_precision``` MEX-file or the ```GENRE_GPU_double_precision``` MEX-file in a for loop. In each iteration of the for loop, the 
    ```lambda_values_h``` vector can be modified to have new values and then be supplied to the MEX-files. Although this method means that there will be less model fits passed to the 
