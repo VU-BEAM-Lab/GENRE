@@ -11,7 +11,7 @@
 8. [Comparing with Other Packages](#Comparing-with-Other-Packages)
 9. [License](#License)
 11. [Contact Information](#Contact-Information)
-12. [Citing/Contributing](#Citing-/-Contributing)
+12. [Citing/Contributing](#Citing/Contributing)
 10. [Acknowledgements](#Acknowledgements)
 
 ## Overview
