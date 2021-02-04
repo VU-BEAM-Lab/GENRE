@@ -11,7 +11,7 @@
 8. [Comparing with Other Packages](#Comparing-with-Other-Packages)
 9. [License](#License)
 10. [Contact Information](#Contact-Information)
-11. [Citing and Contributing](#Citing-and-Contributing)
+11. [Citing/Contributing](#Citing-/-Contributing)
 12. [Acknowledgements](#Acknowledgements)
 
 ## Overview
@@ -354,7 +354,7 @@ Copyright 2020 Christopher Khan
 ## Contact Information
 If you have questions, suggestions, or bugs to report, please use the Issues section of this repository or contact Christopher Khan (christopher.m.khan@vanderbilt.edu). 
 
-## Citing and Contributing
+## Citing/Contributing
 Please include the following citation to cite this repository in publications. The link to the paper is [![DOI](https://joss.theoj.org/papers/10.21105/joss.02644/status.svg)](https://doi.org/10.21105/joss.02644).
 
 ```
